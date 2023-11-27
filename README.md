@@ -1,4 +1,8 @@
-# mapping-the-daily
-This my first atte, of leaflet javascript framework 
+# Mapping the Daily
 
-It's a basic tool to show locations you frequently go to and link them with googleMaps link to easly search for them. 
+A. 
+This is my first attempt at using the Leaflet JavaScript framework and integrating a custom-designed map from Mapbox.
+
+B. 
+It's a basic tool for displaying locations you frequently visit and linking them with Google Maps for easy search.
+
