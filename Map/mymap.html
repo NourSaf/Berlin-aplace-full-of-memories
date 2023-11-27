@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berlin Map with Places</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="./Style/index.css">
+  <style>
+
+  </style>
+</head>
+<body>
+
+<div id="sidebar">
+  <button onclick="showLocation('Study')" id="studyBtn" class="sidebarBtn" >University</button>
+  <button onclick="showLocation('Work')" id="workBtn" class="sidebarBtn" >Work</button>
+  <button onclick="showLocation('Home')" id="homeBtn" class="sidebarBtn" >Home</button>
+</div>
+
+
+    <div id="map">
+    </div>
+
+    <div id="overlay">
+        <span id="overlay-close" onclick="closeOverlay()">X</span>
+        <h2 id="overlay-name" class="name"></h2>
+        <p id="overlay-label" class="labale"></p>
+        <p id="overlay-address" class="address"></p>
+        <img id="overlay-photo" style="max-width: 100%;" alt="Location Photo">
+       
+
+        <a id="googleMapBtn" target="_blank"> <button id="linkbtn" class="sidebarBtn" >View on Google Maps
+      </button></a>
+      </div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+<script src="./functions.js">
+  
+  
+</script>
+
+</body>
+</html>

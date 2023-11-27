@@ -1,0 +1,88 @@
+@import url(map.css);
+
+body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .element.style {
+      width: 100px;
+  }
+
+  .pin-arker{
+      height: 35px;
+  }
+  
+  #sidebar {
+  position: absolute;
+
+    width: 100%;
+    display: relative;
+    gap: 16px;
+    background-color: rgba(0, 0, 0, 0);
+    flex-direction: row;
+    align-items: center;
+    padding: 16px;
+    z-index: 1000;
+    padding-left: 100px;
+    align-items: center;
+  }
+
+  .sidebarBtn{
+      font-size: 15px;
+      color: white;
+      border-radius: 50px;
+      border: none;
+      padding: 10px 25px;
+      background-color: rgb(0, 0, 0);
+  }
+
+  .sidebarBtn:hover{
+      cursor: pointer;
+  }
+
+  #sidebar button.active {
+    background-color: #4c4caf;
+    color: white;
+  }
+
+  #map {
+      display: flex;
+      height: 100vh;
+  }
+  
+  #overlay {
+  color: rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+  position: fixed;
+  top: 0;
+    right: -100%;
+    width: 30%;
+    height: 100%;
+    background-color: rgb(22, 22, 22);
+    overflow-y: auto;
+    transition: right 0.3s ease-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    z-index: 1000;
+  }
+
+  #overlay-close {
+    cursor: pointer;
+    float: right;
+    font-size: 24px;
+  }
+
+  .name{
+      font-size: 35px;
+  }
+  
+  .work, .home{
+      font-size: 25px;
+  }
+
+  #linkbtn{
+    margin: 16px;
+    background-color: white;
+    color: black;
+  }

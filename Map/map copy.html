@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berlin Map with Places</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+    }
+
+    #sidebar {
+      width: 10%;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    #map {
+      flex: 1;
+    }
+
+    #overlay {
+      position: fixed;
+      top: 0;
+      right: -100%; /* Start off-screen */
+      width: 25%;
+      height: 100%;
+      background-color: #fff;
+      overflow-y: auto;
+      transition: right 0.3s ease-out;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      padding: 20px;
+    }
+
+    #overlay-close {
+      cursor: pointer;
+      float: right;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="sidebar">
+  <button onclick="showLocation('Study')">Uni</button>
+  <button onclick="showLocation('Work')">Work</button>
+  <button onclick="showLocation('Home')">Home</button>
+</div>
+
+<div id="map"></div>
+<div id="overlay">
+  <span id="overlay-close" onclick="closeOverlay()">X</span>
+  <h2 id="overlay-name"></h2>
+  <p id="overlay-label"></p>
+  <p id="overlay-address"></p>
+  <img id="overlay-photo" style="max-width: 100%;" alt="Location Photo">
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+<script>
+  var map = L.map('map').setView([52.49099156128556, 13.358810151068894], 14);
+
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=YOUR_MAPBOX_ACCESS_TOKEN', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+  }).addTo(map);
+
+  // Add markers
+  var locations = [
+    {
+      name: 'Medienhause',
+      label: 'Study',
+      address: 'Universität der Künste Berlin, Grunewaldstr. 2-5, 10823 Berlin',
+      location: [52.49099156128556, 13.358810151068894],
+      photo: 'study_photo.jpg'
+    },
+    {
+      name: 'Henkelhiedl',
+      label: 'Work',
+      address: 'Urbanstraße 116, 10967 Berlin',
+      location: [52.491154631164704, 13.41858690508184],
+      photo: 'work_photo.jpg'
+    },
+    {
+      name: 'GneisiHaus',
+      label: 'Home',
+      address: 'Gneisenaustraße 17, 10961 Berlin',
+      location: [52.491629492129, 13.392841578747062],
+      photo: 'home_photo.jpg'
+    }
+  ];
+
+  var markers = L.markerClusterGroup();
+
+  locations.forEach(function (location) {
+    var marker = L.marker(location.location, {
+      title: location.name,
+      icon: L.divIcon({
+        className: 'custom-marker',
+        html: '<img src="pin_icon.png" alt="Pin Icon">'
+      })
+    });
+
+    marker.on('click', function () {
+      openOverlay(location);
+    });
+
+    markers.addLayer(marker);
+  });
+
+  map.addLayer(markers);
+
+  function showLocation(label) {
+    var location = locations.find(loc => loc.label === label);
+    if (location) {
+      map.setView(location.location, 14);
+      openOverlay(location);
+    }
+  }
+
+  function openOverlay(location) {
+    document.getElementById('overlay-name').textContent = location.name;
+    document.getElementById('overlay-label').textContent = 'Label: ' + location.label;
+    document.getElementById('overlay-address').textContent = 'Address: ' + location.address;
+    document.getElementById('overlay-photo').src = location.photo;
+
+    document.getElementById('overlay').style.right = '0';
+  }
+
+  function closeOverlay() {
+    document.getElementById('overlay').style.right = '-100%';
+  }
+</script>
+
+</body>
+</html>
