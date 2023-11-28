@@ -1,8 +1,6 @@
 # Mapping the Daily
 
 A. 
-This is my first attempt at using the Leaflet JavaScript framework and integrating a custom-designed map from Mapbox.
-
+This marks my inaugural endeavor with the Leaflet JavaScript framework, involving the integration of a custom-designed map from Mapbox.
 B. 
-It's a basic tool for displaying locations you frequently visit and linking them with Google Maps for easy search.
-
+t's a fundamental tool for showcasing locations you visit regularly and seamlessly connecting them with Google Maps for effortless searches.
