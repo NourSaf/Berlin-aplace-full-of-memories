@@ -21,25 +21,44 @@
         height: 35px;
     }
     
-    #sidebar {
+    .sidebar{
       position: absolute;
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+      height: 100vh;
+      width: 10%;
+    }
+
+    .viewBtnContainer {
       width: auto;
       display: flex;
       flex-direction: row;
       align-items: center;
       padding: 16px;
       z-index: 1000;
-      padding-left: 100px;
+      
+      align-items: stretch;
+    }
+    
+    .filter {
+      width: auto;
+      display: flex;
+      flex-direction:column;
       align-items: center;
+      padding: 10px;
+      z-index: 1000;
+      gap: 10px; 
+      align-items: stretch;
     }
 
     .sidebarBtn{
       font-size: 15px;
-      color: rgb(0, 0, 0);
-      border-radius: 50px;
-      border: none;
+      color: rgb(255, 255, 255);
+      border-color: #ff02ff;
+      border-style: solid;
       padding: 10px 25px;
-      background-color: rgb(184, 184, 184);
+      background-color: rgba(0, 0, 0, 0.383);
     }
 
     .sidebarBtn:hover{
@@ -47,8 +66,14 @@
     }
 
     #sidebar button.active {
-      background-color: #0000ff;
+      background-color: #ff02ff;
       color: white;
+    }
+
+    #startBtn{
+      
+      border: none;
+      border-radius: 12px;
     }
 
     #map {
@@ -97,7 +122,7 @@
     }
 
     .sidebarBtn.active {
-      background-color: #7878ea;
+      background-color: #ff02ff;
     }
 
     #startBtn {
@@ -129,13 +154,15 @@
 </head>
 
 <body>
-
-  <div id="sidebar">
+<div class="sidebar">
+  <div id="uppersidebar">
     <div class="viewBtnContainer">
       <p class="BtnContainerText"> VIEW CONTROL</p>
       <button onclick="startTour()" id="startBtn" class="sidebarBtn">Start</button>
       <button onclick="resetView()" id="resetBtn" class="sidebarBtn">Reset View</button>
     </div>
+  </div>
+  <div id="secondsidebar">
     <div class="filter">
       <button onclick="showCategory('Places I Lived In')" id="Places I Lived InBtn" class="sidebarBtn lived-in">🏠 Places I lived In</button>
       <button onclick="showCategory('Going Out and Fun')" id="Going Out and FunBtn" class="sidebarBtn Going Out and Fun">🍻 Fun </button>
@@ -144,8 +171,7 @@
     <!-- ... other category buttons -->
     </div>
   </div>
-  
-  
+</div>
 
 
     <div id="map">
@@ -157,7 +183,7 @@
         <p id="overlay-label" class="labale"></p>
         <p id="overlay-address" class="address"></p>
         <img id="overlay-photo" style="max-width: 100%;" alt="Location Photo">
-        <button id="playMusicBtn" class="sidebarBtn" onclick="toggleMusic()">Play Music</button>
+        <button id="playMusicBtn" class="sidebarBtn" onclick="toggleMusic()">▶</button>
         <audio id="overlayMusic" type="audio/mp3"></audio>
         <a id="googleMapBtn" target="_blank"> <button id="linkbtn" class="sidebarBtn" >View on Google Maps
       </button></a>
@@ -388,7 +414,7 @@
   color: 'none',      // Color of the circle
   fillColor: '#f03', // Fill color of the circle
   fillOpacity: 0.5,  // Fill opacity
-  radius: 300        // Radius of the circle (in meters)
+  radius: 250        // Radius of the circle (in meters)
 };
 
 
@@ -428,10 +454,10 @@
 
           if (music.paused) {
               music.play();
-              button.textContent = 'Pause Music';
+              button.textContent = '⏸';
           } else {
               music.pause();
-              button.textContent = 'Play Music';
+              button.textContent = '▶';
           }
       }
 
