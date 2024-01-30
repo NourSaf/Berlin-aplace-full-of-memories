@@ -150,10 +150,20 @@
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.flag{
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  font-size: 20px;
+}
   </style>
 </head>
 
 <body>
+  <div class="flag">
+    <div>🇵🇸</div>
+  </div>
 <div class="sidebar">
   <div id="uppersidebar">
     <div class="viewBtnContainer">
@@ -178,6 +188,9 @@
     </div>
 
     <div id="overlay">
+      <div class="flag">
+        <div>🇵🇸</div>
+      </div>
         <span id="overlay-close" onclick="closeOverlay()">X</span>
         <h2 id="overlay-name" class="name"></h2>
         <p id="overlay-label" class="labale"></p>
@@ -187,7 +200,9 @@
         <audio id="overlayMusic" type="audio/mp3"></audio>
         <a id="googleMapBtn" target="_blank"> <button id="linkbtn" class="sidebarBtn" >View on Google Maps
       </button></a>
+      
       </div>
+      
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
