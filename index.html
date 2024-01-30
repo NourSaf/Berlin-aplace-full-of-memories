@@ -1,6 +1,6 @@
   <!DOCTYPE html>
-  <html lang="en">
   <head>
+    <html lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Berlin Map with Places</title>
@@ -8,155 +8,171 @@
   
     <style>
 
-      body {
-        margin: 0px;
-        padding: 0;
-      }
+        body {
+          margin: 0px;
+          padding: 0;
+        }
 
-      .element.style {
-          width: 100px;
-      }
+        .element.style {
+            width: 100px;
+        }
 
-      .pin-arker{
-          height: 35px;
-      }
-      
-      .sidebar{
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        z-index: 1000;
-        height: 100vh;
-        width: 10%;
-      }
+        .pin-arker{
+            height: 35px;
+        }
 
-      .viewBtnContainer {
-        width: auto;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 16px;
-        z-index: 1000;
-        
-        align-items: stretch;
-      }
-      
-      .filter {
-        width: auto;
-        display: flex;
-        flex-direction:column;
-        align-items: center;
-        padding: 10px;
-        z-index: 1000;
-        gap: 10px; 
-        align-items: stretch;
-      }
+        .sidebar{
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          z-index: 1000;
+          height: 100vh;
+          width: 10%;
+        }
 
-      .sidebarBtn{
-        font-size: 15px;
+        .viewBtnContainer {
+          width: auto;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 16px;
+          z-index: 1000;
+          
+          align-items: stretch;
+        }
+
+        .filter {
+          width: auto;
+          display: flex;
+          flex-direction:column;
+          align-items: center;
+          padding: 10px;
+          z-index: 1000;
+          gap: 10px; 
+          align-items: stretch;
+        }
+
+        .sidebarBtn{
+          font-size: 15px;
+          color: rgb(255, 255, 255);
+          border-color: #ff02ff;
+          border-style: solid;
+          padding: 10px 25px;
+          background-color: rgba(0, 0, 0, 0.383);
+        }
+
+        .sidebarBtn:hover{
+            cursor: pointer;
+        }
+
+        #sidebar button.active {
+          background-color: #ff02ff;
+          color: white;
+        }
+
+        #startBtn{
+          
+          border: none;
+          border-radius: 12px;
+        }
+
+        #map {
+          display: flex;
+          height: 100vh;
+        }
+
+        #overlay {
         color: rgb(255, 255, 255);
-        border-color: #ff02ff;
-        border-style: solid;
-        padding: 10px 25px;
-        background-color: rgba(0, 0, 0, 0.383);
-      }
+        font-family: Arial, Helvetica, sans-serif;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 35%;
+        height: 100%;
+        background-color: rgb(89, 89, 89);
+        overflow-y: auto;
+        transition: right 0.3s ease-out;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        z-index: 1000;
+        }
 
-      .sidebarBtn:hover{
+        #overlay-close {
           cursor: pointer;
-      }
+          float: right;
+          font-size: 24px;
+        }
 
-      #sidebar button.active {
-        background-color: #ff02ff;
-        color: white;
-      }
+        .name{
+          font-size: 35px;
+        }
 
-      #startBtn{
-        
-        border: none;
-        border-radius: 12px;
-      }
+        .work, .home{
+          font-size: 25px;
+        }
 
-      #map {
-        display: flex;
-        height: 100vh;
-      }
-      
-      #overlay {
-      color: rgb(255, 255, 255);
-      font-family: Arial, Helvetica, sans-serif;
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 35%;
-      height: 100%;
-      background-color: rgb(89, 89, 89);
-      overflow-y: auto;
-      transition: right 0.3s ease-out;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      padding: 20px;
-      z-index: 1000;
-      }
+        #linkbtn{
+          margin: 16px;
+          background-color: white;
+          color: black;
+        }
 
-      #overlay-close {
-        cursor: pointer;
-        float: right;
-        font-size: 24px;
-      }
+        #playMusicBtn {
+        margin-top: 16px; 
+        }
 
-      .name{
-        font-size: 35px;
-      }
-      
-      .work, .home{
-        font-size: 25px;
-      }
+        .sidebarBtn.active {
+          background-color: #ff02ff;
+        }
 
-      #linkbtn{
-        margin: 16px;
-        background-color: white;
-        color: black;
-      }
+        #startBtn {
+        background-color: hsl(0, 100%, 60%); 
+        color: rgb(0, 0, 0);
+        }
 
-      #playMusicBtn {
-      margin-top: 16px; 
-      }
+        .viewBtnContainer{
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          padding: 10px;
+        }
 
-      .sidebarBtn.active {
-        background-color: #ff02ff;
-      }
+        #resetBtn{
+          background-color: rgb(229, 229, 229);
+        }
 
-      #startBtn {
-    background-color: hsl(0, 100%, 60%); /* Green background for start button */
-    color: rgb(0, 0, 0);
-    /* Other styles as needed */
-  }
+        .leaflet-control-container{
+          display:none;
+        }
 
-  .viewBtnContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
+        .BtnContainerText{
+          color: white;
+          font-family: Arial, Helvetica, sans-serif;
+        }
 
-  }
+        .flag{
+          display: flex;
+          justify-content: center;
+          background-color: black;
+          font-size: 20px;
+        }
 
-  #resetBtn{
-    background-color: rgb(229, 229, 229);
-  }
+        .info.legend {
+          padding: 6px 8px;
+          font: 14px/16px Arial, Helvetica, sans-serif;
+          background: white;
+          background: rgba(255, 255, 255, 0.8);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+          border-radius: 5px;
+        }
 
-  .leaflet-control-container{
-    display:none;
-  }
-  .BtnContainerText{
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-  .flag{
-    display: flex;
-    justify-content: center;
-    background-color: black;
-    font-size: 20px;
-  }
+        .info.legend i {
+          width: 18px;
+          height: 18px;
+          float: left;
+          margin-right: 8px;
+          opacity: 0.7;
+        }
 
 
     </style>
@@ -169,28 +185,25 @@
   <div class="sidebar">
     <div id="uppersidebar">
       <div class="viewBtnContainer">
-
         <button onclick="startTour()" id="startBtn" class="sidebarBtn">Start</button>
         <button onclick="resetView()" id="resetBtn" class="sidebarBtn">Reset View</button>
       </div>
     </div>
+
     <div id="secondsidebar">
       <div class="filter">
         <button onclick="showCategory('Places I Lived In')" id="Places I Lived InBtn" class="sidebarBtn lived-in">🏠 Places I lived In</button>
         <button onclick="showCategory('Going Out and Fun')" id="Going Out and FunBtn" class="sidebarBtn Going Out and Fun">🍻 Fun </button>
         <button onclick="showCategory('Work')" id="WorkBtn" class="sidebarBtn Work">👨🏾‍💻 Places I worked in </button>
         <button onclick="showCategory('University')" id="UniversityBtn" class="sidebarBtn University">👨🏾‍🎓 University </button>
-      <!-- ... other category buttons -->
       </div>
     </div>
   </div>
-
 
       <div id="map">
       </div>
 
       <div id="overlay">
-        
           <span id="overlay-close" onclick="closeOverlay()">X</span>
           <h2 id="overlay-name" class="name"></h2>
           <p id="overlay-label" class="labale"></p>
@@ -198,92 +211,90 @@
           <img id="overlay-photo" style="max-width: 100%;" alt="Location Photo">
           <button id="playMusicBtn" class="sidebarBtn" onclick="toggleMusic()">▶</button>
           <audio id="overlayMusic" type="audio/mp3"></audio>
-          
-          <a id="googleMapBtn" target="_blank"> <button id="linkbtn" class="sidebarBtn" >View on Google Maps
-        </button></a>
+            <a id="googleMapBtn" target="_blank"> 
+              <button id="linkbtn" class="sidebarBtn" >View on Google Maps
+              </button>
+            </a>
+      </div>
         
-        </div>
-        
-
       <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-      <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+      <!-- <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script> -->
+    
     <script>
-      
           var categories = {
-
           'Places I Lived In': {
             emoji: '🏠',
             markers: [],
             isVisible: false,
             locations: [
-              {
-                name: '2016 - The first room in Berlin',
-                label: '🏠 Home',
-                address: 'I was 19 years old when I first move to Berlin',
-                location: [52.46980515548625, 13.426669208254209],
-                // photo: './Photos/home.jpg',
-                link:"https://www.google.com/maps/place/Warthestra%C3%9Fe+64,+12051+Berlin/@52.4698348,13.4241148,17z/data=!3m1!4b1!4m6!3m5!1s0x47a84f90b26bae33:0x42a76427bdfab9e9!8m2!3d52.4698348!4d13.4266897!16s%2Fg%2F11bw3frbnf?entry=ttu",
-                music: './music/die welt geht runter.mp3'
-              },
-  
-              {
-                name: '2016 - Where I met Amori, Hashomi and Marki',
-                label: '🏠 Home',
-                address: 'It was one of the most unique experiences I have ever had.',
-                location: [52.47869311696065, 13.423709420621154],
-                // photo: './Photos/home.jpg',
-                link:"https://www.google.com/maps/place/Weisestra%C3%9Fe+59,+12049+Berlin/@52.4787029,13.4235311,20z/data=!4m6!3m5!1s0x47a84fbe868a3cc7:0x39139f0b9f0ed03f!8m2!3d52.47868!4d13.4237007!16s%2Fg%2F11csjtm8hj?entry=ttu",
-                music: './music/Lights.mp3'
-              },           
-
-              {
-                name: '2016 - I always saw KitKat que from my window',
-                label: '🏠 Home',
-                address: 'In was then, when I met Benjamen and broke up with Caroline. It was the phase of partiying alot',
-                location: [52.511088006963945, 13.415326989528703],
-                // photo: './Photos/home.jpg',
-                link:"https://www.google.com/maps/place/K%C3%B6penicker+Str.+99,+10179+Berlin/@52.5110472,13.4146967,19z/data=!3m1!4b1!4m6!3m5!1s0x47a84e251132cb31:0xf71361e2fab1f74d!8m2!3d52.5110472!4d13.4153404!16s%2Fg%2F11c1xqsmlk?entry=ttu",
-                music: './music/Cake.mp3'
-              },
-
-              {
-                name: '2017 - Can someone erase my memory',
-                label: '🏠 Home',
-                address: 'Only one good thing was that I met Ronja',
-                location: [52.50443974227214, 13.428637823104616],
-                // photo: './Photos/home.jpg',
-                link:"https://www.google.com/maps/place/Wrangelstra%C3%9Fe+130,+10997+Berlin/@52.50427,13.4260951,17z/data=!3m1!4b1!4m6!3m5!1s0x47a84e36256af43f:0xa896b98f55a69e02!8m2!3d52.50427!4d13.42867!16s%2Fg%2F11c5jdjmr7?entry=ttu",
-                music: './music/redbone.mp3'
-              },
-
-              {
-                name: '2018 - A best friend',
-                label: '🏠 Home',
-                address: 'Here I met Qusai, and we became best friends; I learned how to trust.',
-                location: [52.54071604760491, 13.41260941677279],
-                // photo: './Photos/home.jpg',
-                link:"https://www.google.com/maps/place/Sch%C3%B6nhauser+Allee+45,+10435+Berlin/@52.5404634,13.4120859,19.91z/data=!4m6!3m5!1s0x47a851ff0a99f59d:0xe29b3da88523bd14!8m2!3d52.5406949!4d13.4126044!16s%2Fg%2F11c5ps14kq?entry=ttu",
-                music: './music/ijustcannot.mp3'
-              },
-
-              {
-                  name: '2020 - GneisiHaus',
+                {
+                  name: '2016 - The first room in Berlin',
                   label: '🏠 Home',
-                  address: 'I lived 3 years with Naoko and Sarah. Here I learned what is it like to change yourself. I learned a bit about caring',
-                  location: [52.491629492129, 13.392841578747062],
+                  address: 'I was 19 years old when I first move to Berlin',
+                  location: [52.46980515548625, 13.426669208254209],
                   // photo: './Photos/home.jpg',
-                  link:"https://www.google.com/maps/place/Gneisenaustra%C3%9Fe+17,+10961+Berlin/@52.4915317,13.3903525,17z/data=!3m1!4b1!4m6!3m5!1s0x47a84fd7dd89510d:0x1b257c405f64ca80!8m2!3d52.4915317!4d13.3929274!16s%2Fg%2F11b8v57b5x?entry=ttu",
-                  music: './music/thank god.mp3'
+                  link:"https://www.google.com/maps/place/Warthestra%C3%9Fe+64,+12051+Berlin/@52.4698348,13.4241148,17z/data=!3m1!4b1!4m6!3m5!1s0x47a84f90b26bae33:0x42a76427bdfab9e9!8m2!3d52.4698348!4d13.4266897!16s%2Fg%2F11bw3frbnf?entry=ttu",
+                  music: './music/die welt geht runter.mp3'
                 },
 
-              {
-                  name: '2024 - Better alone',
+                {
+                  name: '2016 - Where I met Amori, Hashomi and Marki',
                   label: '🏠 Home',
-                  address: 'After a long time living in shared apartments, I decided to live alone, and here we go',
-                  location: [52.51495800109478, 13.433271772041314],
+                  address: 'It was one of the most unique experiences I have ever had.',
+                  location: [52.47869311696065, 13.423709420621154],
                   // photo: './Photos/home.jpg',
-                  link:"https://www.google.com/maps/place/Singerstra%C3%9Fe+33,+10243+Berlin/@52.5148014,13.4284545,17z/data=!4m15!1m8!3m7!1s0x47a84e3f723ea133:0xda49e3ecc29e165a!2sSingerstra%C3%9Fe+33,+10243+Berlin!3b1!8m2!3d52.5148015!4d13.4333254!16s%2Fg%2F11c2h490jy!3m5!1s0x47a84e3f723ea133:0xda49e3ecc29e165a!8m2!3d52.5148015!4d13.4333254!16s%2Fg%2F11c2h490jy?entry=ttu",
-                  music: './music/kanet.mp3'
+                  link:"https://www.google.com/maps/place/Weisestra%C3%9Fe+59,+12049+Berlin/@52.4787029,13.4235311,20z/data=!4m6!3m5!1s0x47a84fbe868a3cc7:0x39139f0b9f0ed03f!8m2!3d52.47868!4d13.4237007!16s%2Fg%2F11csjtm8hj?entry=ttu",
+                  music: './music/Lights.mp3'
+                },           
+
+                {
+                  name: '2016 - I always saw KitKat que from my window',
+                  label: '🏠 Home',
+                  address: 'In was then, when I met Benjamen and broke up with Caroline. It was the phase of partiying alot',
+                  location: [52.511088006963945, 13.415326989528703],
+                  // photo: './Photos/home.jpg',
+                  link:"https://www.google.com/maps/place/K%C3%B6penicker+Str.+99,+10179+Berlin/@52.5110472,13.4146967,19z/data=!3m1!4b1!4m6!3m5!1s0x47a84e251132cb31:0xf71361e2fab1f74d!8m2!3d52.5110472!4d13.4153404!16s%2Fg%2F11c1xqsmlk?entry=ttu",
+                  music: './music/Cake.mp3'
+                },
+
+                {
+                  name: '2017 - Can someone erase my memory',
+                  label: '🏠 Home',
+                  address: 'Only one good thing was that I met Ronja',
+                  location: [52.50443974227214, 13.428637823104616],
+                  // photo: './Photos/home.jpg',
+                  link:"https://www.google.com/maps/place/Wrangelstra%C3%9Fe+130,+10997+Berlin/@52.50427,13.4260951,17z/data=!3m1!4b1!4m6!3m5!1s0x47a84e36256af43f:0xa896b98f55a69e02!8m2!3d52.50427!4d13.42867!16s%2Fg%2F11c5jdjmr7?entry=ttu",
+                  music: './music/redbone.mp3'
+                },
+
+                {
+                  name: '2018 - A best friend',
+                  label: '🏠 Home',
+                  address: 'Here I met Qusai, and we became best friends; I learned how to trust.',
+                  location: [52.54071604760491, 13.41260941677279],
+                  // photo: './Photos/home.jpg',
+                  link:"https://www.google.com/maps/place/Sch%C3%B6nhauser+Allee+45,+10435+Berlin/@52.5404634,13.4120859,19.91z/data=!4m6!3m5!1s0x47a851ff0a99f59d:0xe29b3da88523bd14!8m2!3d52.5406949!4d13.4126044!16s%2Fg%2F11c5ps14kq?entry=ttu",
+                  music: './music/ijustcannot.mp3'
+                },
+                
+                {
+                    name: '2020 - GneisiHaus',
+                    label: '🏠 Home',
+                    address: 'I lived 3 years with Naoko and Sarah. Here I learned what is it like to change yourself. I learned a bit about caring',
+                    location: [52.491629492129, 13.392841578747062],
+                    // photo: './Photos/home.jpg',
+                    link:"https://www.google.com/maps/place/Gneisenaustra%C3%9Fe+17,+10961+Berlin/@52.4915317,13.3903525,17z/data=!3m1!4b1!4m6!3m5!1s0x47a84fd7dd89510d:0x1b257c405f64ca80!8m2!3d52.4915317!4d13.3929274!16s%2Fg%2F11b8v57b5x?entry=ttu",
+                    music: './music/thank god.mp3'
+                },
+
+                {
+                    name: '2024 - Better alone',
+                    label: '🏠 Home',
+                    address: 'After a long time living in shared apartments, I decided to live alone, and here we go',
+                    location: [52.51495800109478, 13.433271772041314],
+                    // photo: './Photos/home.jpg',
+                    link:"https://www.google.com/maps/place/Singerstra%C3%9Fe+33,+10243+Berlin/@52.5148014,13.4284545,17z/data=!4m15!1m8!3m7!1s0x47a84e3f723ea133:0xda49e3ecc29e165a!2sSingerstra%C3%9Fe+33,+10243+Berlin!3b1!8m2!3d52.5148015!4d13.4333254!16s%2Fg%2F11c2h490jy!3m5!1s0x47a84e3f723ea133:0xda49e3ecc29e165a!8m2!3d52.5148015!4d13.4333254!16s%2Fg%2F11c2h490jy?entry=ttu",
+                    music: './music/kanet.mp3'
                 },
             ]
           },
@@ -313,7 +324,6 @@
                   music: './music/jumpsuit.mp3'
                 },
             
-                
                 {
                   name: 'Holzmarkt 25',
                   label: '🍻  Summer Chillout',
@@ -324,6 +334,35 @@
                   music: './music/lala.mp3'
                 },
             
+                {
+                  name: 'Biergarten Jockel',
+                  label: '🍻  Standup Comedy show',
+                  address: "The night I went to see Salam in the standup comedy show",
+                  location: [52.49242156227893, 13.438387368506842],
+                  // photo: './Photos/home.jpg',
+                  link:"https://www.google.com/maps/place/Biergarten+Jockel/@52.4917993,13.4250856,15.12z/data=!4m6!3m5!1s0x47a84fad83ee12cf:0x32222854a7e82f96!8m2!3d52.4919277!4d13.4385616!16s%2Fg%2F1v16pb3n?entry=ttu",
+                  music: './music/lala.mp3'
+                },
+
+                {
+                  name: 'Tempelhofer Feld',
+                  label: '🍻  It feels like summer',
+                  address: "The place to be in summer",
+                  location: [52.47562757422759, 13.400932693022977],
+                  // photo: './Photos/home.jpg',
+                  link:"https://www.google.com/maps/place/Tempelhofer+Feld/@52.482341,13.4086326,14.18z/data=!4m6!3m5!1s0x47a84fe8f7d899eb:0x88898e99acbb718b!8m2!3d52.4748569!4d13.4005926!16s%2Fg%2F1213_1c4?entry=ttu",
+                  music: './music/lala.mp3'
+                },
+
+                {
+                  name: 'cuccuma',
+                  label: '🍻  Remote working and hang out with Naoko',
+                  address: "Here was the first time I went to ",
+                  location: [52.491677318683024, 13.394436325390021],
+                  // photo: './Photos/home.jpg',
+                  link:"https://www.google.com/maps/place/Tempelhofer+Feld/@52.482341,13.4086326,14.18z/data=!4m6!3m5!1s0x47a84fe8f7d899eb:0x88898e99acbb718b!8m2!3d52.4748569!4d13.4005926!16s%2Fg%2F1213_1c4?entry=ttu",
+                  music: './music/lala.mp3'
+                },
             ]
           },
 
@@ -387,8 +426,6 @@
           },
         };
 
-
-
         var map = L.map('map').setView([52.512452, 13.432652], 11);
 
         L.tileLayer('https://api.mapbox.com/styles/v1/nour-safadi/clrrjs2iw00f501pn83iub9x2/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoibm91ci1zYWZhZGkiLCJhIjoiY2xwNnh5d2FnMXhsaTJqcWs4ZHFqNXM4aiJ9.cdEJMpU6paLl1t4Lk79MvA', {
@@ -415,21 +452,20 @@
               openOverlay(location);
             });
 
-            // Add marker directly to the map
             marker.addTo(map);
             category.markers.push(marker);
 
           });
         });
 
-
         var circleStyle = {
-          color: 'none',      // Color of the circle
-          fillColor: '#f03', // Fill color of the circle
-          fillOpacity: 0.5,  // Fill opacity
-          radius: 250        // Radius of the circle (in meters)
+          color: 'none', 
+          fillColor: '#f03',
+          fillOpacity: 0.5,
+          radius: 250
         };
 
+        
 
           function openOverlay(location) {
             document.getElementById('overlay-name').textContent = location.name;
@@ -439,12 +475,10 @@
             document.getElementById('googleMapBtn').href = location.link;
 
             if (window.currentCircle) {
-      map.removeLayer(window.currentCircle); // Remove existing circle if present
-    }
+            map.removeLayer(window.currentCircle); 
+            }
 
-    // Create a new circle at the clicked location
-    window.currentCircle = L.circle(location.location, circleStyle).addTo(map);
-            
+            window.currentCircle = L.circle(location.location, circleStyle).addTo(map);
             var musicPlayer = document.getElementById('overlayMusic');
             musicPlayer.src = location.music;
             musicPlayer.pause();
@@ -455,13 +489,13 @@
 
           function closeOverlay() {
             if (window.currentCircle) {
-      map.removeLayer(window.currentCircle);
-      window.currentCircle = null;
-    }
+            map.removeLayer(window.currentCircle);
+            window.currentCircle = null;
+            }
             document.getElementById('overlay').style.right = '-100%';
           }
 
-        function toggleMusic() {
+          function toggleMusic() {
             var music = document.getElementById('overlayMusic');
             var button = document.getElementById('playMusicBtn');
 
@@ -474,42 +508,40 @@
             }
         }
 
-        function showCategory(categoryName) {
-          var category = categories[categoryName];
-          if (!category) return;
+      function showCategory(categoryName) {
+        var category = categories[categoryName];
+        if (!category) return;
 
-          category.isVisible = !category.isVisible; // Toggle visibility
+        category.isVisible = !category.isVisible; 
 
-          category.markers.forEach(marker => {
-            if (category.isVisible) {
-              map.removeLayer(marker); // Remove marker from map if category is not visible
-            } else {
-              marker.addTo(map); // Add marker to map if category is visible
-            }
-          });
-
-          // Optionally, update the button's appearance
-          var button = document.getElementById(categoryName + 'Btn');
-          if (button) {
-            button.classList.toggle('active', category.isVisible);
+        category.markers.forEach(marker => {
+          if (category.isVisible) {
+            map.removeLayer(marker); 
+          } else {
+            marker.addTo(map);
           }
+        });
+
+        var button = document.getElementById(categoryName + 'Btn');
+        if (button) {
+          button.classList.toggle('active', category.isVisible);
         }
+      }
 
-        function startTour() {
-    var category = categories['Places I Lived In'];
-    if (!category || category.locations.length === 0) {
-      console.log("No locations found in 'Places I Lived In'");
-      return;
-    }
+    function startTour() {
+      var category = categories['Places I Lived In'];
+      if (!category || category.locations.length === 0) {
+        console.log("No locations found in 'Places I Lived In'");
+        return;
+      }
 
-    var firstLocation = category.locations[6];
-    map.setView(firstLocation.location, 14); // Zoom level can be adjusted
-    openOverlay(firstLocation);
+      var firstLocation = category.locations[6];
+      map.setView(firstLocation.location, 14);
+      openOverlay(firstLocation);
   }
 
-  var initialCoordinates = [52.512452, 13.432652]; // Replace with your initial coordinates
-  var initialZoom = 11; // Replace with your initial zoom level
-
+  var initialCoordinates = [52.512452, 13.432652]; 
+  var initialZoom = 11; 
 
   function resetView() {
     map.setView(initialCoordinates, initialZoom);
@@ -518,13 +550,10 @@
       map.removeLayer(window.currentCircle);
       window.currentCircle = null;
     }
-
-    // Optional: Close the overlay if it's open
     closeOverlay();
   }
-
-      
-    </script>
+  
+  </script>
 
   </body>
   </html>
