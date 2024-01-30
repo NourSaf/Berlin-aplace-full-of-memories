@@ -1,8 +1,3 @@
-body{
-    margin: 0;
-    padding:0;
-}
-        
 #map{            
     height: 100vh;
     width: 100%;
@@ -25,8 +20,18 @@ body {
     position: absolute;
     display: flex;
     flex-direction: column;
+    z-index: 1003;
+    height: auto;
+    width: 10%;
+  }
+
+  .sidebar2{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end   ;
     z-index: 1000;
-    height: 100vh;
+    height: 100%;
     width: 10%;
   }
 
@@ -126,7 +131,7 @@ body {
   }
 
   #startBtn {
-    background-color: hsl(0, 100%, 60%); 
+    background-color: #ff02ff;
     color: rgb(0, 0, 0);
   }
 
@@ -138,7 +143,8 @@ body {
   }
 
   #resetBtn{
-    background-color: rgb(229, 229, 229);
+    background-color: rgba(192, 192, 192, 0.38);
+    border:none ;
   }
 
   .leaflet-control-container{
@@ -157,20 +163,4 @@ body {
     font-size: 20px;
   }
 
-  .info.legend {
-    padding: 6px 8px;
-    font: 14px/16px Arial, Helvetica, sans-serif;
-    background: white;
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-  }
-
-  .info.legend i {
-    width: 18px;
-    height: 18px;
-    float: left;
-    margin-right: 8px;
-    opacity: 0.7;
-  }
 
