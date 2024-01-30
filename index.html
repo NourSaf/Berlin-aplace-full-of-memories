@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
   <head>
     <html lang="en">
     <meta charset="UTF-8">
@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   
     <style>
-
         body {
           margin: 0px;
           padding: 0;
@@ -82,19 +81,19 @@
         }
 
         #overlay {
-        color: rgb(255, 255, 255);
-        font-family: Arial, Helvetica, sans-serif;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 35%;
-        height: 100%;
-        background-color: rgb(89, 89, 89);
-        overflow-y: auto;
-        transition: right 0.3s ease-out;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        padding: 20px;
-        z-index: 1000;
+          color: rgb(255, 255, 255);
+          font-family: Arial, Helvetica, sans-serif;
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 35%;
+          height: 100%;
+          background-color: rgb(89, 89, 89);
+          overflow-y: auto;
+          transition: right 0.3s ease-out;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          padding: 20px;
+          z-index: 1000;
         }
 
         #overlay-close {
@@ -118,7 +117,7 @@
         }
 
         #playMusicBtn {
-        margin-top: 16px; 
+          margin-top: 16px; 
         }
 
         .sidebarBtn.active {
@@ -126,8 +125,8 @@
         }
 
         #startBtn {
-        background-color: hsl(0, 100%, 60%); 
-        color: rgb(0, 0, 0);
+          background-color: hsl(0, 100%, 60%); 
+          color: rgb(0, 0, 0);
         }
 
         .viewBtnContainer{
@@ -182,6 +181,7 @@
     <div class="flag">
       <div class="flagcontent">🇵🇸</div>
     </div>
+
     <div class="sidebar">
       <div id="uppersidebar">
         <div class="viewBtnContainer">
@@ -200,25 +200,25 @@
       </div>
     </div>
 
-      <div id="map">
-      </div>
+    <div id="map">
+    </div>
 
-      <div id="overlay">
-          <span id="overlay-close" onclick="closeOverlay()">X</span>
-          <h2 id="overlay-name" class="name"></h2>
-          <p id="overlay-label" class="labale"></p>
-          <p id="overlay-address" class="address"></p>
-          <img id="overlay-photo" style="max-width: 100%;" alt="Location Photo">
-          <button id="playMusicBtn" class="sidebarBtn" onclick="toggleMusic()">▶</button>
-          <audio id="overlayMusic" type="audio/mp3"></audio>
-          <a id="googleMapBtn" target="_blank"> 
-            <button id="linkbtn" class="sidebarBtn" >View on Google Maps
-            </button>
-          </a>
-      </div>
-        
-      <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>  
-      <script src="/functions.js"></script>
+    <div id="overlay">
+        <span id="overlay-close" onclick="closeOverlay()">X</span>
+        <h2 id="overlay-name" class="name"></h2>
+        <p id="overlay-label" class="labale"></p>
+        <p id="overlay-address" class="address"></p>
+        <img id="overlay-photo" style="max-width: 100%;" alt="Location Photo">
+        <button id="playMusicBtn" class="sidebarBtn" onclick="toggleMusic()">▶</button>
+        <audio id="overlayMusic" type="audio/mp3"></audio>
+        <a id="googleMapBtn" target="_blank"> 
+          <button id="linkbtn" class="sidebarBtn" >View on Google Maps
+          </button>
+        </a>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>  
+    <script src="/functions.js"></script>
 
   </body>
-  </html>
+</html>
