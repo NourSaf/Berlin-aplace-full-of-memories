@@ -135,7 +135,7 @@ var categories = {
           name: 'cuccuma',
           label: '🍻  Remote working and hang out with Naoko',
           address: "Here was the first time I went to ",
-          location: [52.491677318683024, 13.394436325390021],
+          location: [52.49077852861389, 13.394500568020419],
           // photo: './Photos/home.jpg',
           link:"https://www.google.com/maps/place/Tempelhofer+Feld/@52.482341,13.4086326,14.18z/data=!4m6!3m5!1s0x47a84fe8f7d899eb:0x88898e99acbb718b!8m2!3d52.4748569!4d13.4005926!16s%2Fg%2F1213_1c4?entry=ttu",
           music: './music/lala.mp3'
