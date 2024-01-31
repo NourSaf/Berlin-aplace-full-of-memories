@@ -244,34 +244,33 @@ var circleStyle = {
 };
 
 
+function openOverlay(location) {
+  document.getElementById('overlay-name').textContent = location.name;
+  document.getElementById('overlay-label').textContent = location.label;
+  document.getElementById('overlay-address').textContent = location.address;
+  document.getElementById('overlay-photo').src = location.photo;
+  document.getElementById('googleMapBtn').href = location.link;
 
-  function openOverlay(location) {
-    document.getElementById('overlay-name').textContent = location.name;
-    document.getElementById('overlay-label').textContent = location.label;
-    document.getElementById('overlay-address').textContent = location.address;
-    document.getElementById('overlay-photo').src = location.photo;
-    document.getElementById('googleMapBtn').href = location.link;
-
-    if (window.currentCircle) {
+  if (window.currentCircle) {
     map.removeLayer(window.currentCircle); 
-    }
-
-    window.currentCircle = L.circle(location.location, circleStyle).addTo(map);
-    var musicPlayer = document.getElementById('overlayMusic');
-    musicPlayer.src = location.music;
-    musicPlayer.pause();
-    musicPlayer.currentTime = 0;
-    document.getElementById('playMusicBtn').textContent = 'Play Music';
-    document.getElementById('overlay').style.right = '0';
   }
 
-  function closeOverlay() {
-    if (window.currentCircle) {
+  window.currentCircle = L.circle(location.location, circleStyle).addTo(map);
+  var musicPlayer = document.getElementById('overlayMusic');
+  musicPlayer.src = location.music;
+  musicPlayer.pause();
+  musicPlayer.currentTime = 0;
+  document.getElementById('playMusicBtn').textContent = 'Play Music';
+  document.getElementById('overlay').style.top = '10%'; // Change to slide from the top
+}
+
+function closeOverlay() {
+  if (window.currentCircle) {
     map.removeLayer(window.currentCircle);
     window.currentCircle = null;
-    }
-    document.getElementById('overlay').style.right = '-100%';
   }
+  document.getElementById('overlay').style.top = '-100%'; // Hide the overlay
+}
 
   function toggleMusic() {
     var music = document.getElementById('overlayMusic');
