@@ -235,6 +235,7 @@ Object.keys(categories).forEach(function (categoryName) {
   });
 });
 
+
 var circleStyle = {
   color: 'none', 
   fillColor: '#f03',

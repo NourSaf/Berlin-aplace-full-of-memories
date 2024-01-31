@@ -133,7 +133,7 @@ body {
     background-color: whitesmoke;
   }
 
-  #startBtn {
+  #startBtn{
     background-color: rgb(0, 0, 0);
     color: rgb(0, 0, 0);
     font-family: 'Nabla', system-ui;
@@ -145,7 +145,6 @@ body {
     background-color: rgba(192, 192, 192, 0.38);
     border:none ;
     font-family: 'Nabla', system-ui;
-
   }
 
   .leaflet-control-container{
