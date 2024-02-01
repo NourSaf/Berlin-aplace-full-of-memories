@@ -133,7 +133,7 @@ var categories = {
 
         {
           name: 'cuccuma',
-          label: '🍻  Remote working and hang out with Naoko',
+          label: '🍻 Remote working and hang out with Naoko',
           address: "Here was the first time I went to ",
           location: [52.49077852861389, 13.394500568020419],
           // photo: './Photos/home.jpg',
