@@ -2,7 +2,7 @@ var categories = {
   'Places I Lived In': {
     emoji: '🏠',
     markers: [],
-    isVisible: false,
+    isVisible: true,
     locations: [
         {
           name: '2016 - The first room in Berlin',
@@ -79,7 +79,7 @@ var categories = {
   'Going Out and Fun': {
     emoji: '🍻',
     markers: [],
-    isVisible: false,
+    isVisible: true,
     locations: [
         {
           name: 'Juicery Berlin',
@@ -146,7 +146,7 @@ var categories = {
   'Work': {
     emoji: '👨🏾‍💻',
     markers: [],
-    isVisible: false,
+    isVisible: true,
     locations: [
     
     {
@@ -187,7 +187,7 @@ var categories = {
   'University': {
     emoji: '🏫',
     markers: [],
-    isVisible: false,
+    isVisible: true,
     locations: [
       {
         name: 'Medienhause',
@@ -223,7 +223,7 @@ Object.keys(categories).forEach(function (categoryName) {
         className: 'emoji-marker',
         html: `<div style="font-size: 40px;">${category.emoji}</div>`
       })
-    }).bindPopup(location.label);
+    })
 
     marker.on('click', function () {
       openOverlay(location);
@@ -293,9 +293,9 @@ category.isVisible = !category.isVisible;
 
 category.markers.forEach(marker => {
   if (category.isVisible) {
-    map.removeLayer(marker); 
-  } else {
     marker.addTo(map);
+  } else {
+    map.removeLayer(marker); 
   }
 });
 
@@ -305,27 +305,43 @@ if (button) {
 }
 }
 
-function startTour() {
-var category = categories['Places I Lived In'];
-if (!category || category.locations.length === 0) {
-console.log("No locations found in 'Places I Lived In'");
-return;
-}
-
-var firstLocation = category.locations[6];
-map.setView(firstLocation.location, 14);
-openOverlay(firstLocation);
-}
 
 var initialCoordinates = [52.512452, 13.432652]; 
 var initialZoom = 11; 
 
-function resetView() {
-map.setView(initialCoordinates, initialZoom);
+  function resetView() {
+    map.setView(initialCoordinates, initialZoom);
 
-if (window.currentCircle) {
-map.removeLayer(window.currentCircle);
-window.currentCircle = null;
+    if (window.currentCircle) {
+      map.removeLayer(window.currentCircle);
+      window.currentCircle = null;
+    }
+    closeOverlay();
+  }
+
+
+function toggleAllCategoriesVisibility() {
+  Object.keys(categories).forEach(function(categoryName) {
+      // Toggle visibility for each category
+      var category = categories[categoryName];
+      category.isVisible = !category.isVisible; // Toggle the visibility
+
+      // Toggle markers on the map
+      category.markers.forEach(marker => {
+          if (category.isVisible) {
+            marker.addTo(map);
+          } else {
+            map.removeLayer(marker);
+          }
+      });
+
+      // Update the button's appearance if necessary
+      var button = document.getElementById(categoryName + 'Btn');
+      if (button) {
+          button.classList.toggle('active', category.isVisible);
+      }
+  });
 }
-closeOverlay();
-}
+
+// Call this function to toggle the visibility of all categories
+toggleAllCategoriesVisibility();

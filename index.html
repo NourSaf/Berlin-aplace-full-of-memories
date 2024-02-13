@@ -14,7 +14,6 @@
     <div class="sidebar">
       <div id="uppersidebar">
         <div class="viewBtnContainer">
-          <button onclick="startTour()" id="startBtn" class="sidebarBtn">Start</button>
           <button onclick="resetView()" id="resetBtn" class="sidebarBtn">Reset View</button>
         </div>
       </div>
@@ -27,6 +26,8 @@
             <button onclick="showCategory('Going Out and Fun')" id="Going Out and FunBtn" class="sidebarBtn Going Out and Fun">🍻<br> Fun </button>
             <button onclick="showCategory('Work')" id="WorkBtn" class="sidebarBtn Work">👨🏾‍💻 <br>Places I worked in </button>
             <button onclick="showCategory('University')" id="UniversityBtn" class="sidebarBtn University">👨🏾‍🎓 <br> University </button>
+            <button onclick="toggleAllCategoriesVisibility()" class="sidebarBtn">Toggle Categories</button>
+
           </div>
       </div>
     </div>
@@ -35,7 +36,7 @@
     </div>
 
     <div id="overlay">
-        <span id="overlay-close" onclick="closeOverlay()">X</span>
+        <span id="overlay-close" onclick="closeOverlay()">❌</span>
         <h2 id="overlay-name" class="name"></h2>
         <p id="overlay-label" class="labale"></p>
         <p id="overlay-address" class="address"></p>
@@ -47,6 +48,7 @@
           </button>
         </a>
     </div>
+
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>  
     <script src="/functions.js"></script>
