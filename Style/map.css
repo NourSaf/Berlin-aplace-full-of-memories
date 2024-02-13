@@ -131,12 +131,18 @@ body {
     background-color: rgba(255, 255, 255, 0);
   }
 
-  #playMusicBtn {
-    margin-top: 17px; 
-  }
+.musicBtn{
+  background: transparent;
+  direction: none;
+}
+
+.musicBtn img{
+width: 50px;
+height: 50px;
+}
 
   .sidebarBtn.active {
-    background-color: rgb(177, 93, 241);
+    background-color: #b15df1;
   }
 
 
@@ -153,6 +159,3 @@ body {
   .BtnContainerText{
     color: white;
  }
-
-
-

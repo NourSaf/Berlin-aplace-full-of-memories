@@ -248,7 +248,7 @@ function openOverlay(location) {
   document.getElementById('overlay-name').textContent = location.name;
   document.getElementById('overlay-label').textContent = location.label;
   document.getElementById('overlay-address').textContent = location.address;
-  document.getElementById('overlay-photo').src = location.photo;
+  // document.getElementById('overlay-photo').src = location.photo;
   document.getElementById('googleMapBtn').href = location.link;
 
   if (window.currentCircle) {
@@ -260,17 +260,19 @@ function openOverlay(location) {
   musicPlayer.src = location.music;
   musicPlayer.pause();
   musicPlayer.currentTime = 0;
-  document.getElementById('playMusicBtn').textContent = 'Play Music';
+  document.getElementById('playMusicBtn').innerHTML = '<img src="/icons/play.png" alt="Play" style="width: 50px; height: 50px;">';
   document.getElementById('overlay').style.top = '10%'; // Change to slide from the top
+
+  // Zoom into the marker's location
+  map.setView(location.location, 15); // Adjust the zoom level as needed
 }
 
-function closeOverlay() {
-  if (window.currentCircle) {
-    map.removeLayer(window.currentCircle);
-    window.currentCircle = null;
-  }
-  document.getElementById('overlay').style.top = '-100%'; // Hide the overlay
-}
+
+
+
+
+
+
 
   function toggleMusic() {
     var music = document.getElementById('overlayMusic');
@@ -278,10 +280,10 @@ function closeOverlay() {
 
     if (music.paused) {
         music.play();
-        button.textContent = '⏸';
+        button.innerHTML = '<img src="/icons/stop.png" alt="Play" style="width: 50px; height: 50px;">'; 
     } else {
         music.pause();
-        button.textContent = '▶';
+        button.innerHTML = '<img src="/icons/play.png" alt="Play" style="width: 50px; height: 50px;">';
     }
 }
 
@@ -306,11 +308,11 @@ if (button) {
 }
 
 
-var initialCoordinates = [52.512452, 13.432652]; 
-var initialZoom = 11; 
+// var initialCoordinates = [52.512452, 13.432652]; 
+// var initialZoom = 11; 
 
   function resetView() {
-    map.setView(initialCoordinates, initialZoom);
+    map.setView([52.512452, 13.432652], 11);
 
     if (window.currentCircle) {
       map.removeLayer(window.currentCircle);
@@ -345,3 +347,42 @@ function toggleAllCategoriesVisibility() {
 
 // Call this function to toggle the visibility of all categories
 toggleAllCategoriesVisibility();
+
+
+// function closeOverlay() {
+//   if (window.currentCircle) {
+//       map.removeLayer(window.currentCircle);
+//       window.currentCircle = null;
+//   }
+//   document.getElementById('overlay').style.top = '-100%'; // Hide the overlay
+
+//   // Zoom back out to the initial view
+//   // map.setViesw([52.51245, 13.43265], 8);
+// }
+
+function closeOverlay() {
+  if (window.currentCircle) {
+      map.removeLayer(window.currentCircle);
+      window.currentCircle = null;
+  }
+  document.getElementById('overlay').style.top = '-100%'; // Hide the overlay
+  // Show music controls
+  document.getElementById('musicControls').style.display = 'block';
+}
+
+function stopMusic() {
+  var music = document.getElementById('backgroundMusic');
+  music.pause();
+  music.currentTime = 0;
+  document.getElementById('playPauseIcon').src = "/icons/play.png";
+}
+
+function adjustVolume(value) {
+  var music = document.getElementById('backgroundMusic');
+  music.volume = value;
+}
+
+function setVolume(volume) {
+  var music = document.getElementById('overlayMusic');
+  music.volume = volume;
+}
