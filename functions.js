@@ -246,7 +246,7 @@ var circleStyle = {
 
 function openOverlay(location) {
   document.getElementById('overlay-name').textContent = location.name;
-  document.getElementById('overlay-label').textContent = location.label;
+  // document.getElementById('overlay-label').textContent = location.label;
   document.getElementById('overlay-address').textContent = location.address;
   // document.getElementById('overlay-photo').src = location.photo;
   document.getElementById('googleMapBtn').href = location.link;
@@ -288,28 +288,26 @@ function openOverlay(location) {
 }
 
 function showCategory(categoryName) {
-var category = categories[categoryName];
-if (!category) return;
+  var category = categories[categoryName];
+  if (!category) return;
 
-category.isVisible = !category.isVisible; 
+  category.isVisible = !category.isVisible; 
 
-category.markers.forEach(marker => {
-  if (category.isVisible) {
-    marker.addTo(map);
-  } else {
-    map.removeLayer(marker); 
+  category.markers.forEach(marker => {
+    if (category.isVisible) {
+      marker.addTo(map);
+    } else {
+      map.removeLayer(marker); 
+    }
+  });
+
+  var button = document.getElementById(categoryName + 'Btn');
+  if (button) {
+    button.classList.toggle('active', category.isVisible);
   }
-});
-
-var button = document.getElementById(categoryName + 'Btn');
-if (button) {
-  button.classList.toggle('active', category.isVisible);
-}
 }
 
 
-// var initialCoordinates = [52.512452, 13.432652]; 
-// var initialZoom = 11; 
 
   function resetView() {
     map.setView([52.512452, 13.432652], 11);
