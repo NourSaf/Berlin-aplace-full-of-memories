@@ -269,11 +269,6 @@ function openOverlay(location) {
 
 
 
-
-
-
-
-
   function toggleMusic() {
     var music = document.getElementById('overlayMusic');
     var button = document.getElementById('playMusicBtn');
@@ -335,7 +330,6 @@ function toggleAllCategoriesVisibility() {
           }
       });
 
-      // Update the button's appearance if necessary
       var button = document.getElementById(categoryName + 'Btn');
       if (button) {
           button.classList.toggle('active', category.isVisible);
@@ -343,20 +337,8 @@ function toggleAllCategoriesVisibility() {
   });
 }
 
-// Call this function to toggle the visibility of all categories
 toggleAllCategoriesVisibility();
 
-
-// function closeOverlay() {
-//   if (window.currentCircle) {
-//       map.removeLayer(window.currentCircle);
-//       window.currentCircle = null;
-//   }
-//   document.getElementById('overlay').style.top = '-100%'; // Hide the overlay
-
-//   // Zoom back out to the initial view
-//   // map.setViesw([52.51245, 13.43265], 8);
-// }
 
 function closeOverlay() {
   if (window.currentCircle) {
@@ -366,21 +348,4 @@ function closeOverlay() {
   document.getElementById('overlay').style.top = '-100%'; // Hide the overlay
   // Show music controls
   document.getElementById('musicControls').style.display = 'block';
-}
-
-function stopMusic() {
-  var music = document.getElementById('backgroundMusic');
-  music.pause();
-  music.currentTime = 0;
-  document.getElementById('playPauseIcon').src = "/icons/play.png";
-}
-
-function adjustVolume(value) {
-  var music = document.getElementById('backgroundMusic');
-  music.volume = value;
-}
-
-function setVolume(volume) {
-  var music = document.getElementById('overlayMusic');
-  music.volume = volume;
 }
