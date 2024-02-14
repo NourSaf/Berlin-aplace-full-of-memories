@@ -235,11 +235,12 @@ function openOverlay(location) {
     map.removeLayer(window.currentCircle); 
   }
 
-  var musicPlayer = document.getElementById('overlayMusic');
-  musicPlayer.src = location.music;
-  musicPlayer.pause();
-  musicPlayer.currentTime = 0;
-  document.getElementById('playMusicBtn').innerHTML = '<img src="/icons/play.png" alt="Play" style="width: 50px; height: 50px;">';
+  // var musicPlayer = document.getElementById('overlayMusic');
+  // musicPlayer.src = location.music;
+  // musicPlayer.pause();
+  // musicPlayer.currentTime = 0;
+  // document.getElementById('playMusicBtn').innerHTML = '<img src="/icons/play.png" alt="Play" style="width: 50px; height: 50px;">';
+  
   document.getElementById('overlay').style.top = '10%'; // Change to slide from the top
 
   // Zoom into the marker's location
@@ -248,18 +249,18 @@ function openOverlay(location) {
 
 
 
-  function toggleMusic() {
-    var music = document.getElementById('overlayMusic');
-    var button = document.getElementById('playMusicBtn');
+//   function toggleMusic() {
+//     var music = document.getElementById('overlayMusic');
+//     var button = document.getElementById('playMusicBtn');
 
-    if (music.paused) {
-        music.play();
-        button.innerHTML = '<img src="/icons/stop.png" alt="Play" style="width: 50px; height: 50px;">'; 
-    } else {
-        music.pause();
-        button.innerHTML = '<img src="/icons/play.png" alt="Play" style="width: 50px; height: 50px;">';
-    }
-}
+//     if (music.paused) {
+//         music.play();
+//         button.innerHTML = '<img src="/icons/stop.png" alt="Play" style="width: 50px; height: 50px;">'; 
+//     } else {
+//         music.pause();
+//         button.innerHTML = '<img src="/icons/play.png" alt="Play" style="width: 50px; height: 50px;">';
+//     }
+// }
 
 function showCategory(categoryName) {
   var category = categories[categoryName];
@@ -384,3 +385,49 @@ function toggleImageOverlay() {
       openPhotoOverlay(images); // Open with predefined images if not
   }
 }
+
+const tracks = [
+  './music/bachelor.mp3',
+  './music/die welt geht runter.mp3',
+  './music/ijustcannot.mp3',
+  './music/ilka.mp3',
+  './music/jumpsuit.mp3',
+  // Add more tracks as needed
+];
+
+let currentTrackIndex = 0 ;
+
+const musicPlayer = document.getElementById('galleryMusicPlayer');
+musicPlayer.addEventListener('ended', nextTrack); // Automatically move to next track when one ends
+
+document.getElementById('playPauseBtn').addEventListener('click', togglePlayPause);
+document.getElementById('nextTrackBtn').addEventListener('click', nextTrack);
+document.getElementById('prevTrackBtn').addEventListener('click', prevTrack);
+
+function loadTrack(trackIndex) {
+  if (trackIndex < 0) trackIndex = tracks.length - 1;
+  if (trackIndex >= tracks.length) trackIndex = 0;
+  currentTrackIndex = trackIndex;
+  
+  musicPlayer.src = tracks[currentTrackIndex];
+  musicPlayer.play();
+}
+
+function togglePlayPause() {
+  if (musicPlayer.paused) {
+      musicPlayer.play();
+  } else {
+      musicPlayer.pause();
+  }
+}
+
+function nextTrack() {
+  loadTrack(++currentTrackIndex);
+}
+
+function prevTrack() {
+  loadTrack(--currentTrackIndex);
+}
+
+// Initialize the first track
+loadTrack(currentTrackIndex);

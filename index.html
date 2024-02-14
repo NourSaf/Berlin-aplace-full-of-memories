@@ -47,19 +47,30 @@
         <h2 id="overlay-name" class="name"></h2>
         <p id="overlay-label" class="labale"></p>
         <p id="overlay-address" class="address"></p>
-        <button id="playMusicBtn" class="musicBtn" onclick="toggleMusic()"> <img src="/icons/play.png" alt=""></button>
-        <audio id="overlayMusic" type="audio/mp3"></audio>
+        <!-- <button id="playMusicBtn" class="musicBtn" onclick="toggleMusic()"> <img src="/icons/play.png" alt=""></button>
+        <audio id="overlayMusic" type="audio/mp3"></audio> -->
 
         <a id="googleMapBtn" target="_blank"> 
           <button id="linkbtn" class="sidebarBtn" >View on Google Maps
           </button>
         </a>
     </div>
+    <div id="audioPlayer">
+      <button id="prevTrackBtn" class="sidebarBtn">Previous</button>
+      <button id="playPauseBtn" class="sidebarBtn">Play/Pause</button>
+      <button id="nextTrackBtn" class="sidebarBtn">Next</button>
+      <audio id="galleryMusicPlayer" src=""></audio>
+  </div>
 
     <div id="photoOverlay" class="photo-overlay">
+      
+    
       <div class="photo-overlay-content">
           <span class="close-photo-overlay" onclick="closePhotoOverlay()">X</span>
+        
           <div id="photoGallery" class="photo-gallery">
+            
+            
               <!-- Dynamic photo and description entries will be inserted here -->
           </div>
       </div>
