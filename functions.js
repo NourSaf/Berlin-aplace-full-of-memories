@@ -178,6 +178,7 @@ var categories = {
         label: '🏫 Study',
         address: 'Here I studied visual communication at the class of Information design. I learned a lot.',
         location: [52.49099156128556, 13.358810151068894],
+        photo: './Photos/uni.jpeg',
         link:"https://www.google.com/maps/place/Universit%C3%A4t+der+K%C3%BCnste,+Medienhaus/@52.4908283,13.3562567,17z/data=!3m1!4b1!4m6!3m5!1s0x47a8504712a30e33:0x42e91f98e8b32325!8m2!3d52.4908283!4d13.3588316!16s%2Fg%2F1tp_5dyt?entry=ttu",
         music: './music/bachelor.mp3'
 
@@ -227,16 +228,13 @@ var circleStyle = {
 
 function openOverlay(location) {
   document.getElementById('overlay-name').textContent = location.name;
-  // document.getElementById('overlay-label').textContent = location.label;
   document.getElementById('overlay-address').textContent = location.address;
-  // document.getElementById('overlay-photo').src = location.photo;
   document.getElementById('googleMapBtn').href = location.link;
 
   if (window.currentCircle) {
     map.removeLayer(window.currentCircle); 
   }
 
-  window.currentCircle = L.circle(location.location, circleStyle).addTo(map);
   var musicPlayer = document.getElementById('overlayMusic');
   musicPlayer.src = location.music;
   musicPlayer.pause();
@@ -266,9 +264,7 @@ function openOverlay(location) {
 function showCategory(categoryName) {
   var category = categories[categoryName];
   if (!category) return;
-
   category.isVisible = !category.isVisible; 
-
   category.markers.forEach(marker => {
     if (category.isVisible) {
       marker.addTo(map);
@@ -283,18 +279,14 @@ function showCategory(categoryName) {
   }
 }
 
-
-
   function resetView() {
     map.setView([52.512452, 13.432652], 11);
-
     if (window.currentCircle) {
       map.removeLayer(window.currentCircle);
       window.currentCircle = null;
     }
     closeOverlay();
   }
-
 
 function toggleAllCategoriesVisibility() {
   Object.keys(categories).forEach(function(categoryName) {
@@ -317,7 +309,6 @@ function toggleAllCategoriesVisibility() {
       }
   });
 }
-
 toggleAllCategoriesVisibility();
 
 
@@ -327,5 +318,69 @@ function closeOverlay() {
       window.currentCircle = null;
   }
   document.getElementById('overlay').style.top = '-100%'; // Hide the overlay
- 
+  // Show music controls
 } 
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === "Escape") { // For ESC key
+      closeOverlay();
+  }
+});
+
+
+function openPhotoOverlay(images) {
+  const gallery = document.getElementById('photoGallery');
+  gallery.innerHTML = ''; // Clear previous content
+
+  images.forEach(image => {
+      const imgElement = document.createElement('img');
+      imgElement.src = image.src;
+      imgElement.alt = image.alt;
+
+      const descElement = document.createElement('p');
+      descElement.textContent = image.description;
+      descElement.className = 'photo-description';
+
+      gallery.appendChild(imgElement);
+      gallery.appendChild(descElement);
+  });
+
+  document.getElementById('photoOverlay').style.right = '0'; // Slide in
+}
+
+function closePhotoOverlay() {
+  document.getElementById('photoOverlay').style.right = '-100%'; // Slide out
+}
+
+// Predefined images and their descriptions
+const images = [
+  { src: '/photos/25336490944763531.JPG', alt: 'Image 1', },
+  { src: '/photos/IMG_20220810_213133.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG-20200530-WA0004.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG-20200510-WA0006.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20231126_000621.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20231111_220620.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20231020_193319.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20231006_192430.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20230828_214643.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20230810_001911.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20230720_183040.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20230707_115228.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20230707_215001.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20230623_183931.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20230622_214013_1.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20230621_081804.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20230616_103232.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20230527_152944.jpg', alt: 'Image 2', },
+  // Add more images as needed
+];
+
+function toggleImageOverlay() {
+  const overlay = document.getElementById('photoOverlay');
+  // Check if the overlay is already visible
+  if (overlay.style.right === '0px') {
+      closePhotoOverlay(); // Close it if open
+  } else {
+      openPhotoOverlay(images); // Open with predefined images if not
+  }
+}

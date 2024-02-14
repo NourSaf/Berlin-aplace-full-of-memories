@@ -15,9 +15,11 @@
       <div id="uppersidebar">
         <div class="viewBtnContainer">
           <button onclick="resetView()" id="resetBtn" class="sidebarBtn">Reset View</button>
+
         </div>
       </div>
     </div>
+    
 
     <div class="sidebar2">
       <div id="secondsidebar">
@@ -27,11 +29,14 @@
             <button onclick="showCategory('Work')" id="WorkBtn" class="sidebarBtn Work">👨🏾‍💻 <br>Places I worked in </button>
             <button onclick="showCategory('University')" id="UniversityBtn" class="sidebarBtn University">👨🏾‍🎓 <br> University </button>
             <button onclick="toggleAllCategoriesVisibility()" class="sidebarBtn">Show/Hide all</button>
+            <button onclick="toggleImageOverlay()" id="toggleImagesBtn" class="sidebarBtn">Photos Gallery</button>
+
 
           </div>
       </div>
     </div>
-
+    
+   
    
   
     <div id="map">
@@ -50,6 +55,16 @@
           </button>
         </a>
     </div>
+
+    <div id="photoOverlay" class="photo-overlay">
+      <div class="photo-overlay-content">
+          <span class="close-photo-overlay" onclick="closePhotoOverlay()">X</span>
+          <div id="photoGallery" class="photo-gallery">
+              <!-- Dynamic photo and description entries will be inserted here -->
+          </div>
+      </div>
+  </div>
+  
 
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>  
