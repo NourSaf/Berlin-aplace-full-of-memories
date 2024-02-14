@@ -14,9 +14,27 @@
     <div class="sidebar">
       <div id="uppersidebar">
         <div class="viewBtnContainer">
-          <button onclick="resetView()" id="resetBtn" class="sidebarBtn">Reset View</button>
+          <button onclick="resetView()" id="resetBtn" class="sidebarBtn"> 🔁 Reset View</button>
+          <button onclick="toggleAllCategoriesVisibility()" class="sidebarBtn"> 🫣 Show/Hide all</button>
+
+
+            <button onclick="showCategory('Places I Lived In')" id="Places I Lived InBtn" class="sidebarBtn lived-in">🏠 Places I lived In</button>
+            <button onclick="showCategory('Going Out and Fun')" id="Going Out and FunBtn" class="sidebarBtn Going Out and Fun">🍻 Fun </button>
+            <button onclick="showCategory('Work')" id="WorkBtn" class="sidebarBtn Work">👨🏾‍💻 Places I worked in </button>
+            <button onclick="showCategory('University')" id="UniversityBtn" class="sidebarBtn University">👨🏾‍🎓 University </button>
 
         </div>
+        <!-- <div id="secondsidebar">
+          <div class="filter">
+            <button onclick="showCategory('Places I Lived In')" id="Places I Lived InBtn" class="sidebarBtn lived-in">🏠 <br> Places I lived In</button>
+            <button onclick="showCategory('Going Out and Fun')" id="Going Out and FunBtn" class="sidebarBtn Going Out and Fun">🍻<br> Fun </button>
+            <button onclick="showCategory('Work')" id="WorkBtn" class="sidebarBtn Work">👨🏾‍💻 <br>Places I worked in </button>
+            <button onclick="showCategory('University')" id="UniversityBtn" class="sidebarBtn University">👨🏾‍🎓 <br> University </button>
+            <button onclick="toggleAllCategoriesVisibility()" class="sidebarBtn">Show/Hide all</button>
+
+
+          </div>
+      </div> -->
       </div>
     </div>
     
@@ -24,14 +42,7 @@
     <div class="sidebar2">
       <div id="secondsidebar">
           <div class="filter">
-            <button onclick="showCategory('Places I Lived In')" id="Places I Lived InBtn" class="sidebarBtn lived-in">🏠 <br> Places I lived In</button>
-            <button onclick="showCategory('Going Out and Fun')" id="Going Out and FunBtn" class="sidebarBtn Going Out and Fun">🍻<br> Fun </button>
-            <button onclick="showCategory('Work')" id="WorkBtn" class="sidebarBtn Work">👨🏾‍💻 <br>Places I worked in </button>
-            <button onclick="showCategory('University')" id="UniversityBtn" class="sidebarBtn University">👨🏾‍🎓 <br> University </button>
-            <button onclick="toggleAllCategoriesVisibility()" class="sidebarBtn">Show/Hide all</button>
-            <button onclick="toggleImageOverlay()" id="toggleImagesBtn" class="sidebarBtn">Photos Gallery</button>
-
-
+            <button onclick="toggleImageOverlay()" id="toggleImagesBtn" class="sidebarBtn"> 📸 Photos Gallery</button>
           </div>
       </div>
     </div>
@@ -47,17 +58,17 @@
         <h2 id="overlay-name" class="name"></h2>
         <p id="overlay-label" class="labale"></p>
         <p id="overlay-address" class="address"></p>
-        <!-- <button id="playMusicBtn" class="musicBtn" onclick="toggleMusic()"> <img src="/icons/play.png" alt=""></button>
-        <audio id="overlayMusic" type="audio/mp3"></audio> -->
+      
 
         <a id="googleMapBtn" target="_blank"> 
           <button id="linkbtn" class="sidebarBtn" >View on Google Maps
           </button>
         </a>
     </div>
+
     <div id="audioPlayer">
       <button id="prevTrackBtn" class="sidebarBtn">Previous</button>
-      <button id="playPauseBtn" class="sidebarBtn">Play/Pause</button>
+      <button id="playPauseBtn" class="sidebarBtn">Play</button>
       <button id="nextTrackBtn" class="sidebarBtn">Next</button>
       <audio id="galleryMusicPlayer" src=""></audio>
   </div>

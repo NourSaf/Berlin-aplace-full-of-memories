@@ -189,7 +189,7 @@ var categories = {
 
 var map = L.map('map').setView([52.512452, 13.432652], 11);
 
-L.tileLayer('https://api.mapbox.com/styles/v1/nour-safadi/clrrjs2iw00f501pn83iub9x2/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoibm91ci1zYWZhZGkiLCJhIjoiY2xwNnh5d2FnMXhsaTJqcWs4ZHFqNXM4aiJ9.cdEJMpU6paLl1t4Lk79MvA', {
+L.tileLayer('https://api.mapbox.com/styles/v1/nour-safadi/clsmch9zy00oh01pfdq3u9t8l/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoibm91ci1zYWZhZGkiLCJhIjoiY2xwNnh5d2FnMXhsaTJqcWs4ZHFqNXM4aiJ9.cdEJMpU6paLl1t4Lk79MvA', {
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
   id: 'mapbox/streets-v11',
   maxZoom: 16,
@@ -235,12 +235,7 @@ function openOverlay(location) {
     map.removeLayer(window.currentCircle); 
   }
 
-  // var musicPlayer = document.getElementById('overlayMusic');
-  // musicPlayer.src = location.music;
-  // musicPlayer.pause();
-  // musicPlayer.currentTime = 0;
-  // document.getElementById('playMusicBtn').innerHTML = '<img src="/icons/play.png" alt="Play" style="width: 50px; height: 50px;">';
-  
+ 
   document.getElementById('overlay').style.top = '10%'; // Change to slide from the top
 
   // Zoom into the marker's location

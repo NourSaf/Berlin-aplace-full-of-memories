@@ -39,7 +39,7 @@ body {
     justify-content: flex-end;
     z-index: 1000;
     height: 100%;
-    width: 10%;
+    width: auto;
   }
 
   .viewBtnContainer {
@@ -81,9 +81,7 @@ body {
     color: white;
   }
 
-  #startBtn{
-    border: none;
-  }
+
 
   #map {
     display: flex;
@@ -142,24 +140,13 @@ body {
     background-color: rgba(255, 255, 255, 0);
   }
 
-.musicBtn{
-  background: transparent;
-  direction: none;
-}
-
-.musicBtn img{
-width: 50px;
-height: 50px;
-}
-
   .sidebarBtn.active {
-    background-color:#a545ff;
+    background-color:#a545ffc3;
   }
 
 
   #resetBtn{
-    background-color: #a545ffa5;
-    border:none ;
+    background-color: #9e37ff4e;
     font-family: 'VT323', monospace;
   }
 
@@ -212,6 +199,7 @@ height: 50px;
   margin-top: 20px;
   border-radius: 5px;
     filter: grayscale(100%);
+    /* filter: blur(6px); */
 
 }
 
@@ -241,15 +229,20 @@ height: 50px;
   background-color: #e2e2e2;
 }
 
-#audioPlayer{
+#audioPlayer {
   position: fixed;
   z-index: 4000;
-  top: 30px;
-  right: 100px;
+  bottom:  40px; /* Keep the top positioning as is */
+  left: 50%; /* Center relative to the viewport */
+  transform: translateX(-50%); /* Shift it back by half its width */
+  width: auto; /* Adjust the width as needed, or keep it auto */
 }
+
 
 #audioPlayer button{
   border-radius: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 #prevTrackBtn, #playPauseBtn, #nextTrackBtn{
   color: black;
