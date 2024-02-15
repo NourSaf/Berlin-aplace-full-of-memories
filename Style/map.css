@@ -117,7 +117,7 @@ body {
   #overlay-close {
     cursor: pointer;
     float: right;
-    font-size: 15px;
+    font-size: 20px;
     align-self: flex-end;
     border:solid black;
     padding-left: 15px ;
@@ -232,15 +232,7 @@ body {
   cursor:pointer;
 }
 
-#audioPlayer {
-  position: fixed;
-  z-index: 4000;
-  bottom:  20px; /* Keep the top positioning as is */
-  left: 50%; /* Center relative to the viewport */
-  transform: translateX(-50%); /* Shift it back by half its width */
-  width: auto; /* Adjust the width as needed, or keep it auto */
 
-}
 
 #prevTrackBtn, #playPauseBtn, #nextTrackBtn{
   color: black;
@@ -249,3 +241,30 @@ body {
 .musicbtn{
   width: 100%;
 }
+
+
+.mp3player{
+  position: fixed;
+  z-index: 4000;
+  bottom:  80px; /* Keep the top positioning as is */
+  left: 50%; /* Center relative to the viewport */
+  transform: translateX(-50%); /* Shift it back by half its width */
+  width: auto; 
+  z-index: 5000;
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  background: rgba(53, 53, 53, 0.451);
+  font-family: 'VT323', monospace;
+  padding: 20px;
+  border-radius: 30px;
+  transition: background-color 0.00 1s ease; /* Smooth transition between colors */
+
+}
+
+.mp3text{
+  display: flex;
+justify-content: center;  
+padding-bottom: 20px ;
+
+}
+
