@@ -76,20 +76,17 @@ var categories = {
     locations: [
         {
           name: 'Juicery Berlin',
-          label: '🍻  The best juice',
           address: "In summer you can not miss it ",
           location: [52.54177915548525, 13.406139859437936],
           link:"https://www.google.com/maps/place/Juicery+Berlin/@52.5323852,13.4049924,13.96z/data=!4m6!3m5!1s0x47a851f8fb9d61ed:0xa9f18b326db1b169!8m2!3d52.5402193!4d13.405828!16s%2Fg%2F11b6371t6s?entry=ttu",
-          music: './music/kanet.mp3'
         },
         
         {
-          name: '8MM Bar',
-          label: '🍻  Punk Rock',
+          name: '8MM Bar',          
           address: "I used to go here with Lisa on thursdays for a Rock concert",
           location: [52.53233538203483, 13.411964610534843],
           link:"https://www.google.com/maps/place/8MM+Bar/@52.5323895,13.4049692,13.96z/data=!3m1!5s0x47a851e2abb10bef:0x4ac9049c365be1e6!4m6!3m5!1s0x47a851e2aac77ca1:0xa60547d856e96adf!8m2!3d52.531218!4d13.411524!16s%2Fg%2F1tx8s768?entry=ttu",
-          music: './music/jumpsuit.mp3'
+          
         },
     
         {
@@ -98,7 +95,15 @@ var categories = {
           address: "Huuuuf, a lot of things happened here. Once with Siwar and Steffi. With Adham, Qusai and Daniel. With Ronja and Lisa. With the other Lisa in Shook Concert.",
           location: [52.51195781032414, 13.42738829249855],
           link:"https://www.google.com/maps/place/Holzmarkt+25/@52.510468,13.4078305,14.87z/data=!4m6!3m5!1s0x47a84e3963e235b5:0xb044835f7d3a94ec!8m2!3d52.5113137!4d13.4268387!16s%2Fg%2F11k9h3h915?entry=ttu",
-          music: './music/lala.mp3'
+          
+        },
+
+        {
+          name: 'Luzia',
+          address: "Used to go there with different friends including Ahmad, Qusai, Nour, Adham",
+          location: [52.5033891208387, 13.417789501806443],
+          link:"https://www.google.com/maps/place/Caf%C3%A9+Luzia/@52.4932007,13.3954681,14z/data=!4m14!1m7!3m6!1s0x47a84fd64607c30b:0xc2533dc2d7932432!2zUMO2cng!8m2!3d52.4933312!4d13.3954937!16s%2Fg%2F124t0900t!3m5!1s0x47a84e33bc20e27b:0x4938d837d69496eb!8m2!3d52.5016759!4d13.4182843!16s%2Fg%2F1v41zh42?entry=ttu",
+          
         },
     
         {
@@ -181,7 +186,6 @@ var categories = {
         photo: './Photos/uni.jpeg',
         link:"https://www.google.com/maps/place/Universit%C3%A4t+der+K%C3%BCnste,+Medienhaus/@52.4908283,13.3562567,17z/data=!3m1!4b1!4m6!3m5!1s0x47a8504712a30e33:0x42e91f98e8b32325!8m2!3d52.4908283!4d13.3588316!16s%2Fg%2F1tp_5dyt?entry=ttu",
         music: './music/bachelor.mp3'
-
       },
     ]
   },
@@ -242,21 +246,6 @@ function openOverlay(location) {
   map.setView(location.location, 15); // Adjust the zoom level as needed
 }
 
-
-
-//   function toggleMusic() {
-//     var music = document.getElementById('overlayMusic');
-//     var button = document.getElementById('playMusicBtn');
-
-//     if (music.paused) {
-//         music.play();
-//         button.innerHTML = '<img src="/icons/stop.png" alt="Play" style="width: 50px; height: 50px;">'; 
-//     } else {
-//         music.pause();
-//         button.innerHTML = '<img src="/icons/play.png" alt="Play" style="width: 50px; height: 50px;">';
-//     }
-// }
-
 function showCategory(categoryName) {
   var category = categories[categoryName];
   if (!category) return;
@@ -276,7 +265,7 @@ function showCategory(categoryName) {
 }
 
   function resetView() {
-    map.setView([52.512452, 13.432652], 11);
+    map.setView([52.512452, 13.413852], 11);
     if (window.currentCircle) {
       map.removeLayer(window.currentCircle);
       window.currentCircle = null;
@@ -286,11 +275,9 @@ function showCategory(categoryName) {
 
 function toggleAllCategoriesVisibility() {
   Object.keys(categories).forEach(function(categoryName) {
-      // Toggle visibility for each category
       var category = categories[categoryName];
-      category.isVisible = !category.isVisible; // Toggle the visibility
+      category.isVisible = !category.isVisible; 
 
-      // Toggle markers on the map
       category.markers.forEach(marker => {
           if (category.isVisible) {
             marker.addTo(map);
@@ -313,8 +300,8 @@ function closeOverlay() {
       map.removeLayer(window.currentCircle);
       window.currentCircle = null;
   }
-  document.getElementById('overlay').style.top = '-100%'; // Hide the overlay
-  // Show music controls
+  document.getElementById('overlay').style.top = '-100%'; 
+  
 } 
 
 document.addEventListener('keydown', function(event) {
@@ -414,7 +401,7 @@ function loadTrack(trackIndex) {
   currentTrackIndex = trackIndex;
   
   musicPlayer.src = tracks[currentTrackIndex];
-  musicPlayer.play();
+  // musicPlayer.play();
 }
 
 function togglePlayPause() {
@@ -436,3 +423,23 @@ function prevTrack() {
 
 // Initialize the first track
 loadTrack(currentTrackIndex);
+
+
+document.getElementById('aboutBtn').addEventListener('click', function() {
+  document.getElementById('aboutOverlay').style.left = '0'; // Adjust as needed to show the overlay
+});
+
+
+document.getElementById('closeAboutOverlay').addEventListener('click', function() {
+  document.getElementById('aboutOverlay').style.left = '-100%'; // Hide the overlay
+});
+
+document.getElementById('aboutBtn').addEventListener('click', function() {
+  document.getElementById('aboutOverlay').style.display = 'block'; // Show the overlay
+  document.getElementById('modalBackdrop').style.display = 'block'; // Show the backdrop
+});
+
+document.getElementById('closeAboutOverlay').addEventListener('click', function() {
+  document.getElementById('aboutOverlay').style.display = 'none'; // Hide the overlay
+  document.getElementById('modalBackdrop').style.display = 'none'; // Hide the backdrop
+});

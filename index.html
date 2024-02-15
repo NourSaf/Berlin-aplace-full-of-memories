@@ -14,6 +14,8 @@
     <div class="sidebar">
       <div id="uppersidebar">
         <div class="viewBtnContainer">
+          <button id="aboutBtn" class="sidebarBtn">About</button>
+
           <button onclick="resetView()" id="resetBtn" class="sidebarBtn"> 🔁 Reset View</button>
           <button onclick="toggleAllCategoriesVisibility()" class="sidebarBtn"> 🫣 Show/Hide all</button>
           <button onclick="showCategory('Places I Lived In')" id="Places I Lived InBtn" class="sidebarBtn lived-in">🏠 Places I lived In</button>
@@ -25,7 +27,7 @@
       </div>
     </div>
     
-    
+
     <div class="sidebar2">
       <div id="secondsidebar">
           <div class="filter">
@@ -36,11 +38,13 @@
   
     <div id="map">
     </div>
+    <div id="modalBackdrop" class="modal-backdrop"></div>
+
 
     <div id="overlay">
         <span id="overlay-close" onclick="closeOverlay()">X</span>
         <h2 id="overlay-name" class="name"></h2>
-        <p id="overlay-label" class="labale"></p>
+        
         <p id="overlay-address" class="address"></p>
         <a id="googleMapBtn" target="_blank"> 
           <button id="linkbtn" class="sidebarBtn" >View on Google Maps
@@ -66,6 +70,20 @@
 
       </div>
     </div>
+    <div id="aboutOverlay" class="about-overlay">
+      <span id="closeAboutOverlay" class="close-about-overlay">X</span>
+      <div class="about-content">
+        <h2>About This Site</h2>
+        <p>Berlin, a place full of memories, a project created during Nina Bender's "Mapping Stories" course. This interactive map is a personal narrative, charting my experiences in Berlin from 2016 to 2024. Each marker reveals a story of places I've lived, worked, and explored, blending photographs and music to bring these memories to life—serving as a documentation for my future self and friends 30 years from now.
+
+          Berlin has been a canvas for my growth, adventures, and reflections. This website aims to share that journey, showcasing how the city's diverse locales have contributed to my story.
+          
+          This project is a celebration of how places shape our narratives, hoping to inspire you to map your own journey and the significant places within it.</p>
+        <!-- Add more about content as needed -->
+      </div>
+    </div>
+    
+    
   
 
 
@@ -74,3 +92,7 @@
 
   </body>
 </html>
+
+
+
+
