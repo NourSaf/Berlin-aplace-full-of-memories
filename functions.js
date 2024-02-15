@@ -187,13 +187,13 @@ var categories = {
   },
 };
 
-var map = L.map('map').setView([52.512452, 13.432652], 10);
+var map = L.map('map').setView([52.512452, 13.432652], 11);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/nour-safadi/clsmch9zy00oh01pfdq3u9t8l/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoibm91ci1zYWZhZGkiLCJhIjoiY2xwNnh5d2FnMXhsaTJqcWs4ZHFqNXM4aiJ9.cdEJMpU6paLl1t4Lk79MvA', {
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
   id: 'mapbox/streets-v11',
   maxZoom: 16,
-  minZoom: 10,
+  minZoom: 11,
   tileSize: 512,
   zoomOffset: -1,
 }).addTo(map);
