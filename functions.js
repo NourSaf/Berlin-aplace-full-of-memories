@@ -420,12 +420,9 @@ function loadTrack(trackIndex) {
 function togglePlayPause() {
   if (musicPlayer.paused) {
       musicPlayer.play();
-      startDiscoEffect(); // Start the disco effect
-
+      
   } else {
       musicPlayer.pause();
-      stopDiscoEffect(); // Stop the disco effect
-
   }
 }
 
@@ -439,16 +436,3 @@ function prevTrack() {
 
 // Initialize the first track
 loadTrack(currentTrackIndex);
-
-function startDiscoEffect() {
-  const colors = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF', '#2bec04', '#ec04a6', '#04ec80'];
-  colorInterval = setInterval(() => {
-      const randomColor = colors[Math.floor(Math.random() * colors.length)];
-      document.getElementById('mp3player').style.backgroundColor = randomColor;
-  }, 200); // Change color every 500 milliseconds
-}
-
-function stopDiscoEffect() {
-  clearInterval(colorInterval); // Stop changing colors
-  document.getElementById('mp3player').style.backgroundColor = ''; // Optionally reset to default background
-}

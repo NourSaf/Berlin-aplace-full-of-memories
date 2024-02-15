@@ -5,8 +5,7 @@
 /* font-family: 'Nabla', system-ui; */
 
 #map{            
-    height: 100vh;
-    width: 100%;
+    width: 100vw;
 }
 
 body {
@@ -23,33 +22,32 @@ body {
   }
 
   .sidebar{
-    position: absolute;
-    display: flex;
-    flex-direction: row;
+    position: fixed;
     z-index: 1003;
-    height: auto;
+    height: fit-content;
     width: 100vw;
-    justify-content: space-around;
   }
 
   .sidebar2{
-    position: absolute;
+    position: fixed;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    bottom: 1vw;
+    transform: translateX(1vw);
     z-index: 1000;
-    height: 100%;
-    width: auto;
+    height: fit-content;
+    margin: 1vw;
+
+
   }
 
   .viewBtnContainer {
     display: flex;
-    gap: 10px;
+    gap: 1vw;
     justify-content: center;
-    width: auto;
     align-items: center;
-    padding: 25px;
+    padding: 1vw;
     z-index: 1000;
+    flex-direction: row;
    
   }
 
@@ -57,10 +55,8 @@ body {
     width: auto;
     display: flex;
     flex-direction:column;
-    align-items: center;
-    padding: 25px;
+    
     z-index: 1000;
-    gap: 10px; 
     align-items: stretch;
   }
 
@@ -83,7 +79,6 @@ body {
     background-color: rgba(192, 192, 192, 0.38);
     color: white;
   }
-
 
 
   #map {
@@ -170,39 +165,38 @@ body {
 .photo-overlay {
   font-family: 'VT323', monospace;
   position: fixed;
-  top: 0;
   right: -100%; /* Start hidden to the right */
   height: 100%;
-  width: 100%;
-  max-width: 700px; /* Adjust based on your preference */
-  background-color: #a545ff;
+  width: 100vw;
+  max-width: 500px; /* Adjust based on your preference */
+  background-color: #a545ff91;
   overflow-y: auto;
   transition: right 0.5s ease;
   z-index: 2000; /* Ensure it's above other content */
+  top: 1vw;
+  margin-right: 1vw;
+  bottom: 1vw;
 }
 
 .photo-overlay-content {
-  padding: 20px;
+  padding: 1vw;
 }
 
 .close-photo-overlay {
   cursor: pointer;
   float: right;
-  font-size: 15px;
+  font-size: 1.2vw;
   align-self: flex-end;
-  padding-left: 15px ;
-  padding-right:15px ;
+  padding: 7px 12px ;
   border-radius: 30px;
   background-color: rgb(0, 0, 0);
   color: #a545ff;
   position: sticky;
-  margin-bottom: 20px;
+  margin-bottom: 1vw;
 }
 
 .photo-gallery img {
   width: 100%;
-  margin-top: 20px;
-  border-radius: 5px;
   filter: grayscale(100%);
 
 }
@@ -218,53 +212,43 @@ body {
 }
 
 
+.mp3player{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  bottom:  1vw; 
+  right: 1vw; 
+  transform: translateX(-1vw);
+  width: fit-content; 
+  height: fit-content;
+  z-index: 5000;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  background: rgba(53, 53, 53, 0.451);
+  font-family: 'VT323', monospace;
+  padding: 1.5vw;
+  margin: 1vw;
+  gap: 1vw;
+  filter: drop-shadow(0 0 0.45rem #a545ff);
+
+}
 
 #audioPlayer button {
-  position: sticky;
   background-color: transparent;
   border:none;
   cursor: pointer;
-  height: 40px;
-  width: 160px;
+  width: 100px;
 }
+
 
 #audioPlayer button:hover {
   cursor:pointer;
 }
 
-
-
-#prevTrackBtn, #playPauseBtn, #nextTrackBtn{
-  color: black;
-}
-
-.musicbtn{
-  width: 100%;
-}
-
-
-.mp3player{
-  position: fixed;
-  z-index: 4000;
-  bottom:  80px; /* Keep the top positioning as is */
-  left: 50%; /* Center relative to the viewport */
-  transform: translateX(-50%); /* Shift it back by half its width */
-  width: auto; 
-  z-index: 5000;
-  color: rgb(255, 255, 255);
-  font-size: 24px;
-  background: rgba(53, 53, 53, 0.451);
-  font-family: 'VT323', monospace;
-  padding: 20px;
-  border-radius: 30px;
-  transition: background-color 0.00 1s ease; /* Smooth transition between colors */
-
-}
-
 .mp3text{
   display: flex;
-justify-content: center;  
-padding-bottom: 20px ;
-
+  justify-content: center;
 }
+
+
 
