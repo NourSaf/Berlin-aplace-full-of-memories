@@ -368,6 +368,15 @@ const images = [
   { src: '/photos/IMG_20230621_081804.jpg', alt: 'Image 2', },
   { src: '/photos/IMG_20230616_103232.jpg', alt: 'Image 2', },
   { src: '/photos/IMG_20230527_152944.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20230131_194510.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20230118_190958.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20221225_191344.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20220823_154105.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20220820_173748.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_20220812_182724.jpg', alt: 'Image 2', },
+  { src: '/photos/14870707249135275408.JPG', alt: 'Image 2', },
+  { src: '/photos/11135551498854101487.JPG', alt: 'Image 2', },
+  { src: '/photos/12696464521879982503.JPG', alt: 'Image 2', },
   // Add more images as needed
 ];
 
