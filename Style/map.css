@@ -219,15 +219,15 @@ body {
 #audioPlayer button {
   /* Basic styling for the audio control buttons */
   position: sticky;
-  background-color: #f2f2f2;
-  border: 1px solid #dcdcdc;
+  background-color: #f2f2f200;
+  border: 1px solid #dcdcdc00;
   padding: 5px 10px;
   cursor: pointer;
   margin-right: 5px;
 }
 
 #audioPlayer button:hover {
-  background-color: #e2e2e2;
+  cursor:pointer;
 }
 
 #audioPlayer {
@@ -237,6 +237,7 @@ body {
   left: 50%; /* Center relative to the viewport */
   transform: translateX(-50%); /* Shift it back by half its width */
   width: auto; /* Adjust the width as needed, or keep it auto */
+
 }
 
 
@@ -247,4 +248,8 @@ body {
 }
 #prevTrackBtn, #playPauseBtn, #nextTrackBtn{
   color: black;
+}
+
+.musicbtn{
+  width: 50%;
 }
