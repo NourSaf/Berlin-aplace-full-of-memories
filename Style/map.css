@@ -36,13 +36,11 @@ body {
   .sidebar2{
     position: fixed;
     display: flex;
-    bottom: 1vw;
-    transform: translateX(1vw);
+    top: 50%;
+    left: 99%;
+    transform: translateX(-50%);
     z-index: 1000;
     height: fit-content;
-    margin: 1vw;
-
-
   }
 
   .viewBtnContainer {
@@ -60,7 +58,6 @@ body {
     width: auto;
     display: flex;
     flex-direction:column;
-    
     z-index: 1000;
     align-items: stretch;
   }
@@ -174,14 +171,12 @@ body {
   height: 100%;
   width: 100vw;
   max-width: 500px; /* Adjust based on your preference */
-  background-color: #a545ff91;
+  background-color: #a545ffe4;
   overflow-y: auto;
   transition: right 0.5s ease;
   z-index: 2000; /* Ensure it's above other content */
-  top: 1vw;
-  margin-right: 1vw;
-  bottom: 1vw;
-}
+  top: 0;
+  }
 
 .photo-overlay-content {
   padding: 1vw;
@@ -221,9 +216,9 @@ body {
   position: fixed;
   display: flex;
   flex-direction: column;
-  bottom:  1vw; 
-  right: 1vw; 
-  transform: translateX(-1vw);
+  bottom: 1vh ; 
+  left: 50%; 
+  transform: translateX(-50%);
   width: fit-content; 
   height: fit-content;
   z-index: 5000;
@@ -256,4 +251,15 @@ body {
 }
 
 
+
+.imgbtn{
+  font-size: 20px;
+  color: rgb(238, 31, 31);
+  border-color: rgba(192, 192, 192, 0.38);
+  border-style: solid;
+  padding: 3vw 1vw;
+  background-color: rgb(0, 0, 0);
+  font-family: 'VT323', monospace;
+  cursor:w-resize;
+}
 
