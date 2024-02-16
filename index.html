@@ -14,14 +14,13 @@
     <div class="sidebar">
       <div id="uppersidebar">
         <div class="viewBtnContainer">
-          <button id="aboutBtn" class="sidebarBtn">About</button>
-
-          <button onclick="resetView()" id="resetBtn" class="sidebarBtn"> 🔁 Reset View</button>
-          <button onclick="toggleAllCategoriesVisibility()" class="sidebarBtn"> 🫣 Show/Hide all</button>
-          <button onclick="showCategory('Places I Lived In')" id="Places I Lived InBtn" class="sidebarBtn lived-in">🏠 Places I lived In</button>
-          <button onclick="showCategory('Going Out and Fun')" id="Going Out and FunBtn" class="sidebarBtn Going Out and Fun">🍻 Fun </button>
-          <button onclick="showCategory('Work')" id="WorkBtn" class="sidebarBtn Work">👨🏾‍💻 Places I worked in </button>
-          <button onclick="showCategory('University')" id="UniversityBtn" class="sidebarBtn University">👨🏾‍🎓 University </button>
+          <button id="aboutBtn" class="sidebarBtn">ABOUT</button>
+          <button onclick="resetView()" id="resetBtn" class="sidebarBtn"> 🔁 REST VIEW</button>
+          <button onclick="toggleAllCategoriesVisibility()" class="sidebarBtn"> 🫣 SHOW/HIDE ALL</button>
+          <button onclick="showCategory('Places I Lived In')" id="Places I Lived InBtn" class="sidebarBtn lived-in">🏠 LIVING</button>
+          <button onclick="showCategory('Going Out and Fun')" id="Going Out and FunBtn" class="sidebarBtn Going Out and Fun">🍻 FUNING </button>
+          <button onclick="showCategory('Work')" id="WorkBtn" class="sidebarBtn Work">👨🏾‍💻 JOBING </button>
+          <button onclick="showCategory('University')" id="UniversityBtn" class="sidebarBtn University"> 🏫 STUDYING </button>
 
         </div>
       </div>
@@ -73,20 +72,16 @@
     <div id="aboutOverlay" class="about-overlay">
       <span id="closeAboutOverlay" class="close-about-overlay">X</span>
       <div class="about-content">
-        <h2>About This Site</h2>
-        <p>Berlin, a place full of memories, a project created during Nina Bender's "Mapping Stories" course. This interactive map is a personal narrative, charting my experiences in Berlin from 2016 to 2024. Each marker reveals a story of places I've lived, worked, and explored, blending photographs and music to bring these memories to life—serving as a documentation for my future self and friends 30 years from now.
-
-          Berlin has been a canvas for my growth, adventures, and reflections. This website aims to share that journey, showcasing how the city's diverse locales have contributed to my story.
-          
-          This project is a celebration of how places shape our narratives, hoping to inspire you to map your own journey and the significant places within it.</p>
-        <!-- Add more about content as needed -->
+        <h2> <span class="about" >ABOUT</span> </h2>
+        <p>
+          This interactive map is a personal narrative, charting my experiences in Berlin from 2016 to 2024. Each marker reveals a story of places I've lived, worked, and explored, blending photographs and music to bring these memories to life serving as a documentation for my future self and friends 30 years from now. <br>
+          <br> 
+          Berlin has been a canvas for my growth, adventures, and reflections. This website aims to share that journey, showcasing how the city's diverse locales have contributed to my story. 
+          <br> <br>
+          Berlin, a place full of memories, a project created during Nina Bender's "Mapping Stories" course. This project is a celebration of how places shape our narratives, hoping to inspire you to map your own journey and the significant places within it.</p>
       </div>
     </div>
     
-    
-  
-
-
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>  
     <script src="/functions.js"></script>
 
