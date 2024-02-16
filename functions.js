@@ -468,11 +468,27 @@ function toggleImageOverlay() {
 }
 
 const tracks = [
+  './music/thank god.mp3',
   './music/bachelor.mp3',
-  './music/die welt geht runter.mp3',
-  './music/ijustcannot.mp3',
-  './music/ilka.mp3',
+  './music/dudu.mp3',
+  './music/chaluper.mp3',
+  './music/shab.mp3',
+  './music/redbone.mp3',
+  './music/huna.mp3',
+  './music/Paco de Lucía Concierto Aranjuez - Adagio.mp3',
+  './music/mybaby.mp3',
+  './music/Lights.mp3',
+  './music/shibrin.mp3',
+  './music/lala.mp3',
+  './music/kneipe.mp3',
+  './music/kanet.mp3',
   './music/jumpsuit.mp3',
+  './music/inni.mp3',
+  './music/ilka.mp3',
+  './music/ijustcannot.mp3',
+  './music/die welt geht runter.mp3',
+
+  
   // Add more tracks as needed
 ];
 
