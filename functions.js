@@ -410,21 +410,31 @@ function closePhotoOverlay() {
 // Predefined images and their descriptions
 const images = [
   { src: '/photos/25336490944763531.JPG', alt: 'Image 1', },
+  { src: '/photos/IMG_20220812_182724.jpg', alt: 'Image 2', },
   { src: '/photos/IMG_20220810_213133.jpg', alt: 'Image 2', },
   { src: '/photos/IMG-20200530-WA0004.jpg', alt: 'Image 2', },
   { src: '/photos/IMG-20200510-WA0006.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_5122.JPG', alt: 'Image 2', },
   { src: '/photos/IMG_20231126_000621.jpg', alt: 'Image 2', },
-  { src: '/photos/IMG_20231111_220620.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_8669.jpg', alt: 'Image 2', },
+  { src: '/photos/190519_Berlin_Ronja-chilling at Maybachufer_Berlin03-min.jpg', alt: 'Image 2', },
   { src: '/photos/IMG_20231020_193319.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_0383.jpg', alt: 'Image 2', },
   { src: '/photos/IMG_20231006_192430.jpg', alt: 'Image 2', },
+  { src: '/photos/_MG_7427-min.JPG', alt: 'Image 2', },
   { src: '/photos/IMG_20230828_214643.jpg', alt: 'Image 2', },
   { src: '/photos/IMG_3513.JPG', alt: 'Image 2', },
   { src: '/photos/IMG_20221011_193220.jpg', alt: 'Image 2', },
+  { src: '/photos/IMG_7638-min.jpg', alt: 'Image 2', },
   { src: '/photos/IMG_20230810_001911.jpg', alt: 'Image 2', },
   { src: '/photos/IMG_20230707_115228.jpg', alt: 'Image 2', },
+  { src: '/photos/DSC_0880-min.JPG', alt: 'Image 2', },
+  { src: '/photos/23659573_1959360627415275_9110551792721825340_n.jpeg', alt: 'Image 2', },
   { src: '/photos/IMG_0383.jpeg', alt: 'Image 2', },
+  { src: '/photos/IMG_8101.JPG', alt: 'Image 2', },
   { src: '/photos/01.02.23 Last UDK.JPG', alt: 'Image 2', },
   { src: '/photos/IMG_20230707_215001.jpg', alt: 'Image 2', },
+  { src: '/photos/Untitled3-1.jpg', alt: 'Image 2', },
   { src: '/photos/IMG_20230622_214013_1.jpg', alt: 'Image 2', },
   { src: '/photos/IMG_20230621_081804.jpg', alt: 'Image 2', },
   { src: '/photos/IMG_20230616_103232.jpg', alt: 'Image 2', },
@@ -434,7 +444,6 @@ const images = [
   { src: '/photos/IMG_20221225_191344.jpg', alt: 'Image 2', },
   { src: '/photos/IMG_20220823_154105.jpg', alt: 'Image 2', },
   { src: '/photos/IMG_20220820_173748.jpg', alt: 'Image 2', },
-  { src: '/photos/IMG_20220812_182724.jpg', alt: 'Image 2', },
   { src: '/photos/14870707249135275408.JPG', alt: 'Image 2', },
   { src: '/photos/11135551498854101487.JPG', alt: 'Image 2', },
   { src: '/photos/12696464521879982503.JPG', alt: 'Image 2', },
@@ -482,7 +491,7 @@ function loadTrack(trackIndex) {
   currentTrackIndex = trackIndex;
   
   musicPlayer.src = tracks[currentTrackIndex];
-  // musicPlayer.play();
+  musicPlayer.play();
 }
 
 function togglePlayPause() {
